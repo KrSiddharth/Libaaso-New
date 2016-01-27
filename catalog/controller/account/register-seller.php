@@ -111,13 +111,6 @@ class ControllerAccountRegisterSeller extends Controller {
 				$json['errors']['seller[terms]'] = htmlspecialchars_decode(sprintf($this->language->get('ms_error_sellerinfo_terms'), $information_info['title']));
 			}
 		}
-		
-		
-		
-		///hello
-		
-		
-		
 
 		if (empty($json['errors'])) {
 			// Create buyer account
