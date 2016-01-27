@@ -17,6 +17,9 @@ class ControllerAccountReward extends Controller {
 			'text' => $this->language->get('text_home'),
 			'href' => $this->url->link('common/home')
 		);
+		
+		
+		/////hooooooo
 
 		$data['breadcrumbs'][] = array(
 			'text' => $this->language->get('text_account'),
