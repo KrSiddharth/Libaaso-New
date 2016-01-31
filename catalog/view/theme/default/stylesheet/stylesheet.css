@@ -676,9 +676,9 @@ h2.price {
 	display: block;
 	border: 1px solid #ddd;
 }
-.image-additional {
+/*.image-additional {
 	max-width: 78px;
-}
+}*/
 .thumbnails .image-additional {
 	float: left;
 	margin-left: 20px;
@@ -747,7 +747,7 @@ h2.price {
     background-color: #df5c39;
 }
 
-
+/* Custom Css starts */
 
 header{
 	background:url("http://www.libaaso.com/image/catalog/header.png");
@@ -797,8 +797,45 @@ header{
 	height: 150px;
 }
 
-#confetti{
-	position: absolute;
-	left: 0;
-	top: 0;
+
+
+.product-grid .image .img-responsive{
+	display:inline-block;
+}
+
+.fbThumbnail{
+	display: inline-block;
+	position:relative;
+}
+
+.fbThumbnailOverlay{
+	position:absolute;
+	top:0;
+	left:0;
+	width:200px;
+	height:200px;
+	background-color: rgba(0, 0, 0, .4);
+}
+
+.fbThumbnailOverlay.biggerSize{
+	width:270px;
+	height:270px;
+}
+
+.fbThumbnailNumber{
+	display: inline-block;
+	position:absolute;
+	top:50%;
+	color: #fff;
+	font-size: 35px;
+}
+
+.thumbnails li:first-child{
+	float:left;
+}
+
+@media (min-width: 1200px) {
+	.product-grid{
+		width: 50%;
+	}
 }

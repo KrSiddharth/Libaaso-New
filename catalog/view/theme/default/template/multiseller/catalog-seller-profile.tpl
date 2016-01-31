@@ -21,12 +21,14 @@
         <?php } elseif ($column_left || $column_right) { ?>
         <?php $class = 'col-sm-6'; ?>
         <?php } else { ?>
-        <?php $class = 'col-sm-8'; ?>
+        <?php $class = 'col-sm-9'; ?>
         <?php } ?>
 		<div class="<?php echo $class; ?> seller-data">
 			<?php if ($this->config->get('msconf_enable_seller_banner') && isset($seller['banner'])) { ?>
 			<ul class="thumbnails seller-banner">
-					<li><a class="thumbnail"><img src="<?php echo $seller['banner']; ?>" title="<?php echo $seller['nickname']; ?>" alt="<?php echo $seller['nickname']; ?>" /></a></li>
+					<li><a class="thumbnail"><img src="<?php echo $seller['banner']; ?>" title="<?php echo $seller['nickname']; ?>" alt="<?php echo $seller['nickname']; ?>" />
+
+					</a></li>
 			</ul>
 			<?php } ?>
 			<div class="seller-description"><?php echo $seller['description']; ?></div>
@@ -36,9 +38,25 @@
 			<h3><?php echo $ms_catalog_seller_profile_products; ?></h3>
 			<div class="row">
 			  <?php foreach ($seller['products'] as $product) { ?>
-			  <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+			  <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12">
 				<div class="product-thumb transition">
-				  <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
+				  <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>"/>
+					  <?php if ($product['images']['pics']) { ?>
+					  <?php $i=0; foreach ($product['images']['pics'] as $image) { ?>
+					  <?php if($i>=2 || ($product['no_of_images']<=3 && $i==($product['no_of_images']-2))){break;} ?>
+					  <img src="<?php echo $image['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" />
+					  <?php $i++; ?>
+					  <?php } ?>
+					  <div class="fbThumbnail"><img src="<?php echo $image['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" />
+						  <?php if($product['no_of_images']>4) { ?>
+						  <div class="fbThumbnailOverlay"></div>
+						  <div class="fbThumbnailNumber">
+							  <span>+</span><?php echo $product['no_of_images']-4; ?>
+						  </div>
+						  <?php }?>
+					  </div>
+					  <?php } ?>
+				  </a></div>
 				  <div class="caption">
 					<h4><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
 				  </div>
@@ -59,7 +77,7 @@
         <?php } elseif ($column_left || $column_right) { ?>
         <?php $class = 'col-sm-6'; ?>
         <?php } else { ?>
-        <?php $class = 'col-sm-4'; ?>
+        <?php $class = 'col-sm-3'; ?>
         <?php } ?>
         <div class="<?php echo $class; ?>">
 			<div class="info-box">

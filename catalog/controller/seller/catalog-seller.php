@@ -309,6 +309,21 @@ class ControllerSellerCatalogSeller extends ControllerSellerCatalog {
 				} else {
 					$rating = false;
 				}
+
+				$pics = $this->model_catalog_product->getProductImages($product['product_id']);
+
+				$array['pics']=array();
+
+				foreach ($pics as $pic) {
+
+					$array['pics'][]=array(
+						'popup' => $this->model_tool_image->resize($pic['image'], 200, 200),
+						'thumb' => $this->model_tool_image->resize($pic['image'], 200, 200)
+					);
+
+					/* when images less than 4 creates bigger cache images
+					$array['pics'][0]['thumb'] = $this->model_tool_image->resize($pics[0]['image'], 400, 200); */
+				}
 							
 				$this->data['seller']['products'][] = array(
 					'product_id' => $product['product_id'],				
@@ -321,6 +336,8 @@ class ControllerSellerCatalogSeller extends ControllerSellerCatalog {
 					'rating' => $rating,
 					'reviews'    => sprintf($this->language->get('text_reviews'), (int)$product_info['reviews']),
 					'href'    	 => $this->url->link('product/product', 'product_id=' . $product_info['product_id']),
+					'images'	 => $array,
+					'no_of_images' => sizeof($pics)+1
 				);				
 			}
 		} else {
@@ -490,6 +507,21 @@ class ControllerSellerCatalogSeller extends ControllerSellerCatalog {
 				} else {
 					$tax = false;
 				}
+
+				$pics = $this->model_catalog_product->getProductImages($product['product_id']);
+
+				$array['pics']=array();
+
+				foreach ($pics as $pic) {
+
+					$array['pics'][]=array(
+						'popup' => $this->model_tool_image->resize($pic['image'], 270, 270),
+						'thumb' => $this->model_tool_image->resize($pic['image'], 270, 270)
+					);
+
+					/* when images less than 4 creates bigger cache images
+					$array['pics'][0]['thumb'] = $this->model_tool_image->resize($pics[0]['image'], 400, 200); */
+				}
 							
 				$this->data['seller']['products'][] = array(
 					'product_id' => $product['product_id'],
@@ -501,7 +533,9 @@ class ControllerSellerCatalogSeller extends ControllerSellerCatalog {
 					'special' => $special,
 					'rating' => $rating,
 					'reviews'    => sprintf($this->language->get('text_reviews'), (int)$product_data['reviews']),
-					'href'    	 => $this->url->link('product/product', 'product_id=' . $product_data['product_id']),						
+					'href'    	 => $this->url->link('product/product', 'product_id=' . $product_data['product_id']),
+					'images'	 => $array,
+					'no_of_images' => sizeof($pics)+1
 				);				
 			}
 		} else {
