@@ -215,6 +215,25 @@ class ControllerProductCategory extends Controller {
 					$rating = false;
 				}
 
+				$pics = $this->model_catalog_product->getProductImages($result['product_id']);
+
+				$array['pics']=array();
+
+
+
+
+				foreach ($pics as $pic) {
+
+					$array['pics'][]=array(
+						'popup' => $this->model_tool_image->resize($pic['image'], $this->config->get('config_image_popup_width'), $this->config->get('config_image_popup_height')),
+						'thumb' => $this->model_tool_image->resize($pic['image'], $this->config->get('config_image_additional_width'), $this->config->get('config_image_additional_height'))
+					);
+
+					/* when images less than 4 creates bigger cache images
+					$array['pics'][0]['thumb'] = $this->model_tool_image->resize($pics[0]['image'], 400, 200); */
+				}
+
+
 				$data['products'][] = array(
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
@@ -226,7 +245,9 @@ class ControllerProductCategory extends Controller {
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
 					'rating'      => $result['rating'],
 					'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url),
-					'viewed' 	  		 => $result['viewed']
+					'viewed' 	  		 => $result['viewed'],
+					'images'	 => $array,
+					'no_of_images' => sizeof($pics)+1
 				);
 			}
 
