@@ -1,0 +1,9 @@
+/system/storage/cache
+/image/tmp
+/image/cache
+/vqmod/vqcache
+/.idea
+/admin/config.php
+
+
+*.cache
