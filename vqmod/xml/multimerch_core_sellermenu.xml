@@ -32,9 +32,10 @@
 				<li><a href="<?php echo $contact; ?>"><i class="fa fa-phone"></i></a> <span class="hidden-xs hidden-sm hidden-md"><?php echo $telephone; ?></span></li>
 			]]></search>
 			<add><![CDATA[
+
+				<?php if ($ms_seller_created) { ?>
                 <li class="dropdown"><a href="<?php echo $this->url->link('seller/account-dashboard', '', 'SSL'); ?>" title="<?php echo $ms_account_seller_account; ?>" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $ms_account_seller_account; ?></span> <span class="caret"></span></a>
                   <ul class="dropdown-menu dropdown-menu-right">
-                    <?php if ($ms_seller_created) { ?>
                         <?php if ($this->MsLoader->MsSeller->getStatus($this->customer->getId()) == MsSeller::STATUS_ACTIVE) { ?>
                             <li><a href="<?php echo $this->url->link('seller/account-dashboard', '', 'SSL'); ?>"><?php echo $ms_account_dashboard; ?></a></li>
                         <?php } ?>
@@ -53,12 +54,9 @@
                         <li><a href= "<?php echo $this->url->link('seller/account-stats', '', 'SSL'); ?>"><?php echo $ms_account_stats; ?></a></li>
                         <li><a href="<?php echo $this->url->link('account/logout', '', 'SSL'); ?>"><?php echo $text_logout; ?></a></li>
                         <?php } ?>
-                    <?php } else { ?>
-                        <li><a href="<?php echo $this->url->link('account/register-seller', '', 'SSL'); ?>"><?php echo $ms_account_register_seller; ?></a></li>
-                        <li><a href="<?php echo $this->url->link('account/login', '', 'SSL'); ?>"><?php echo $text_login; ?></a></li>
-                    <?php } ?>
-                  </ul>
+                 </ul>
                 </li>
+                <?php } ?>
 			]]></add>
 		</operation>
 	</file>
