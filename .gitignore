@@ -4,6 +4,7 @@
 /vqmod/vqcache
 /.idea
 /admin/config.php
+/image/sellers
 
 
 *.cache
