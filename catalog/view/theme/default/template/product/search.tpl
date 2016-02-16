@@ -110,7 +110,23 @@
         <?php foreach ($products as $product) { ?>
         <div class="product-layout product-list col-xs-12">
           <div class="product-thumb">
-            <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
+            <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>"  />
+              <?php if ($product['images']['pics']) { ?>
+              <?php $i=0; foreach ($product['images']['pics'] as $image) { ?>
+              <?php if($i>=2 || ($product['no_of_images']<=3 && $i==($product['no_of_images']-2))){break;} ?>
+              <img src="<?php echo $image['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" />
+              <?php $i++; ?>
+              <?php } ?>
+              <div class="fbThumbnail"><img src="<?php echo $image['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" />
+                <?php if($product['no_of_images']>4) { ?>
+                <div class="fbThumbnailOverlay biggerSize"></div>
+                <div class="fbThumbnailNumber">
+                  <span>+</span><?php echo $product['no_of_images']-4; ?>
+                </div>
+                <?php }?>
+              </div>
+              <?php } ?>
+            </a></div>
             <div class="caption">
               <h4><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
               <p><?php echo $product['description']; ?></p>

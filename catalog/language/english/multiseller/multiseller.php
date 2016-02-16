@@ -32,7 +32,6 @@ $_['ms_none'] = 'None';
 
 $_['ms_date_created'] = 'Date created';
 $_['ms_date'] = 'Date';
-
 $_['ms_button_submit'] = 'Submit';
 $_['ms_button_add_special'] = 'Define a new special price';
 $_['ms_button_add_discount'] = 'Define a new quantity discount';
@@ -300,7 +299,7 @@ $_['ms_error_seller_product'] = 'You can\'t add your own product to cart';
 $_['ms_account_unread_pm'] = 'You have unread private message';
 $_['ms_account_unread_pms'] = 'You have %s unread private messages';
 $_['ms_account_register_new'] = 'New Seller';
-$_['ms_account_register_seller'] = 'Register seller account';
+$_['ms_account_register_seller'] = 'Seller Registration';
 $_['ms_account_register_seller_note'] = 'Create a seller account and start selling your products in our store!';
 $_['ms_account_register_details'] = 'Step 1: Your Details';
 $_['ms_account_register_seller_success_heading'] = 'Your Seller Account Has Been Created!';

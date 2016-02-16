@@ -5,7 +5,7 @@ $_['heading_title']        = 'Register Account';
 // Text
 $_['text_account']         = 'Account';
 $_['text_register']        = 'Register';
-$_['text_account_already'] = 'If you already have an account with us, please login at the <a href="%s">login page</a>.';
+$_['text_account_already'] = 'Already have an account? <a href="%s">LogIn</a>.';
 $_['text_your_details']    = 'Your Personal Details';
 $_['text_your_address']    = 'Your Address';
 $_['text_newsletter']      = 'Newsletter';
@@ -45,3 +45,12 @@ $_['error_custom_field']   = '%s required!';
 $_['error_password']       = 'Password must be between 4 and 20 characters!';
 $_['error_confirm']        = 'Password confirmation does not match password!';
 $_['error_agree']          = 'Warning: You must agree to the %s!';
+
+
+// Register As
+$_['register_as_heading']  = 'Register As';
+
+// Text
+$_['text_seller']          ='Seller';
+$_['text_buyer']           ='Buyer';
+$_['text_or']              ='Or';

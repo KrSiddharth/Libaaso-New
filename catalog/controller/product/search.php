@@ -218,9 +218,9 @@ class ControllerProductSearch extends Controller {
 
 			foreach ($results as $result) {
 				if ($result['image']) {
-					$image = $this->model_tool_image->resize($result['image'], $this->config->get('config_image_product_width'), $this->config->get('config_image_product_height'));
+					$image = $this->model_tool_image->resize($result['image'], 270, 270);
 				} else {
-					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('config_image_product_width'), $this->config->get('config_image_product_height'));
+					$image = $this->model_tool_image->resize('placeholder.png', 270, 270);
 				}
 
 				if (($this->config->get('config_customer_price') && $this->customer->isLogged()) || !$this->config->get('config_customer_price')) {
@@ -247,6 +247,25 @@ class ControllerProductSearch extends Controller {
 					$rating = false;
 				}
 
+				$pics = $this->model_catalog_product->getProductImages($result['product_id']);
+
+				$array['pics']=array();
+
+
+
+
+				foreach ($pics as $pic) {
+
+					$array['pics'][]=array(
+						'popup' => $this->model_tool_image->resize($pic['image'], 270, 270),
+						'thumb' => $this->model_tool_image->resize($pic['image'], 270,270)
+					);
+
+					/* when images less than 4 creates bigger cache images
+					$array['pics'][0]['thumb'] = $this->model_tool_image->resize($pics[0]['image'], 400, 200); */
+				}
+
+
 				$data['products'][] = array(
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
@@ -258,7 +277,9 @@ class ControllerProductSearch extends Controller {
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
 					'rating'      => $result['rating'],
 					'href'        => $this->url->link('product/product', 'product_id=' . $result['product_id'] . $url),
-					'viewed' 	  => $result['viewed']
+					'viewed' 	  => $result['viewed'],
+					'images'	 => $array,
+					'no_of_images' => sizeof($pics)+1
 				);
 			}
 

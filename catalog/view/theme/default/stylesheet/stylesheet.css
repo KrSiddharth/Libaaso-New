@@ -79,7 +79,6 @@ div.required .control-label:before {
 }
 /* top */
 #top {
-	background-color: #EEEEEE;
 	border-bottom: 1px solid #e2e2e2;
 	padding: 4px 0px 3px 0;
 	/*margin: 0 0 20px 0;*/
@@ -87,6 +86,7 @@ div.required .control-label:before {
 }
 #top .container {
 	padding: 0 20px;
+	line-height:80px;
 }
 #top #currency .currency-select {
 	text-align: left;
@@ -118,22 +118,32 @@ div.required .control-label:before {
 }
 #top-links {
 	padding-top: 6px;
+	font-size: 14px;
 }
 #top-links a + a {
 	margin-left: 15px;
 }
+
+#top i{
+color:#1B75BB;
+	margin-right:5px;
+}
+
 /* logo */
 #logo {
-	margin: 0 0 10px 0;
+	margin-top:10px;
+	display: inline-block;
+}
+
+#logo img{
+	height: 80px;
+	display: inline-block;
 }
 /* search */
-#search {
-	margin-bottom: 10px;
-}
+
 #search .input-lg {
-	height: 40px;
-	line-height: 20px;
 	padding: 0 10px;
+	font-size: 16px;
 }
 #search .btn-lg {
 	font-size: 15px;
@@ -676,9 +686,9 @@ h2.price {
 	display: block;
 	border: 1px solid #ddd;
 }
-.image-additional {
+/*.image-additional {
 	max-width: 78px;
-}
+}*/
 .thumbnails .image-additional {
 	float: left;
 	margin-left: 20px;
@@ -747,12 +757,8 @@ h2.price {
     background-color: #df5c39;
 }
 
+/* Custom Css starts */
 
-
-header{
-	background:url("http://www.libaaso.com/image/catalog/header.png");
-	height:435px;
-}
 
 
 #christmasFooter{
@@ -797,8 +803,257 @@ header{
 	height: 150px;
 }
 
-#confetti{
+
+
+.product-grid .image .img-responsive{
+	display:inline-block;
+}
+
+.fbThumbnail{
+	display: inline-block;
+	position:relative;
+}
+
+.fbThumbnailOverlay{
+	position:absolute;
+	top:0;
+	left:0;
+	width:200px;
+	height:200px;
+	background-color: rgba(0, 0, 0, .4);
+}
+
+.fbThumbnailOverlay.biggerSize{
+	width:270px;
+	height:270px;
+}
+
+.fbThumbnailNumber{
+	display: inline-block;
+	position:absolute;
+	top:50%;
+	color: #fff;
+	font-size: 35px;
+}
+
+.thumbnails li:first-child{
+	float:left;
+}
+
+.registerAsContainer{
+	text-align: center;
+}
+
+.registerAsContainer .verticalAlign{
+	position: relative;
+	top:200px;
+}
+
+.registerAsContainer h1,.registerAsContainer .registerAsOr{
+	color: #1B75BB;
+	font-size: 28px;
+	margin:20px;
+	padding: 0;
+	background: none;
+}
+
+.registerAsContainer li{
+	display: inline-block;
+	background: #1B75BB;
+	padding:20px;
+	margin-bottom: 20px;
+	color: #fff;
+}
+
+.registerAsContainer li img{
+	vertical-align: middle;
+}
+
+.registerAsContainer li span{
+	display: inline-block;
+	font-size: 21px;
+	margin:0 20px;
+}
+
+.registerAsContainer .registerAsSeller,.registerAsContainer .registerAsBuyer{
+	cursor: pointer;
+}
+
+
+.registerSeller.row{
+text-align:center;
+	margin-top:40px;
+}
+
+.registerSeller.row h1{
+	margin-bottom: 40px;
+	background: #1b75bb;
+	color: #fff;
+	margin-top: 0;
+	padding: 20px;
+	font-size: 28px;
+}
+
+.registerSeller.row #content{
+	display: inline-block;
+	box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.2);
+	width:50%;
+
+}
+
+.registerSeller.row #content .inputContainer{
+	width:80%;
+	display: inline-block;
+	position: relative;
+}
+
+.registerSeller.row #content .inputContainer .requiredDot{
+	background:#F88484;
+	height:7px;
+	width:7px;
+	border-radius:50%;
 	position: absolute;
-	left: 0;
-	top: 0;
+	right:0;
+	top:50%;
+}
+
+
+.registerSeller.row #content input {
+	margin: 10px;
+	width: 100%;
+	font-size: 18px;
+	display: inline-block;
+	border: none;
+	padding: 10px 0;
+	border-bottom: solid 1px #27A9E1;
+	-webkit-transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+	transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+	background: -webkit-linear-gradient(top,rgba(27, 117, 187, 0) 96%, #27A9E1 4%);
+	background: linear-gradient(to bottom, rgba(27, 117, 187, 0) 96%, #27A9E1 4%);
+	background-position: -600px 0;
+	background-size:100%;
+	background-repeat: no-repeat;
+	color: #1B75BB;
+}
+.registerSeller.row #content input::-webkit-input-placeholder, button {
+	-webkit-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+.registerSeller.row #content input:focus,input:active{
+	box-shadow: none;
+	outline: none;
+	background-position: 0 0;
+}
+.registerSeller.row #content input:focus::-webkit-input-placeholder {
+	color: #1B75BB;
+	font-size: 15px;
+	-webkit-transform: translateY(-20px);
+	transform: translateY(-20px);
+	visibility: visible !important;
+}
+
+.registerSeller.row #content .btn{
+	border: none;
+	background: #1B75BB;
+	cursor: pointer;
+	border-radius: 0px;
+	padding: 10px;
+	width: 80%;
+	color: white;
+	/* margin-left: 25px; */
+	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+	font-size: 18px;
+}
+
+.registerSeller.row p{
+	font-size:14px;
+}
+
+header{
+	background: url('http://3.bp.blogspot.com/-JzWn-hv0Jdg/UitYn-uOyyI/AAAAAAAABIc/Axk8LEZDjMQ/s1600/D7K_8266.JPG');
+	background-size: cover;
+	height: 600px;
+	padding-top: 280px;
+}
+
+#homePageDef{
+	display: inline-block;
+}
+
+#homePageDef span{
+	display: inline-block;
+	background: rgba(0,0,0,0.8);
+	color: #fff;
+	padding: 10px;
+	font-size: 28px;
+	margin: 5px;
+}
+
+.homePageSearch{
+	/* display: inline-block; */
+	float: right;
+	/* line-height: 800px; */
+	background: rgba(0,0,0,0.7);
+	padding: 20px;
+}
+
+.homePageSearch input{
+	display: inline-block;
+	/* border: none; */
+	border-radius: 0;
+	font-size: 16px;
+	height:50px;
+	line-height: 25px;
+}
+
+.homePageSearch button{
+	border-radius: 0;
+	background: #fff;
+	color: #1b75bb;
+	line-height: 28px;
+	height: 50px;
+}
+
+.homeFeature{
+	display: inline-block;
+	text-align: center;
+	margin:50px 0;
+	width: 33%;
+}
+
+.homeFeature img{
+	width:64px;
+}
+
+.homeFeature .featureDescription{
+	margin: 20px 0;
+	color: #000;
+}
+
+.homeFeature .featureHeading{
+	font-size: 24px;
+	display: block;
+}
+
+.homeFeature .headingDivider{
+	border: 2px solid #1b75bb;
+	/* display: inline-block; */
+	width: 40px;
+	display: block;
+	margin: 20px auto;
+}
+
+.homeFeature .featureDefinition{
+	display: inline-block;
+	width: 200px;
+	color: #9b9b9b;
+}
+
+
+
+@media (min-width: 1200px) {
+	.product-grid{
+		width: 50%;
+	}
 }
