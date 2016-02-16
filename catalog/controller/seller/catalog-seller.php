@@ -231,6 +231,10 @@ class ControllerSellerCatalogSeller extends ControllerSellerCatalog {
 		}
 
 		$this->data['seller']['phone'] = $seller['ms.phone'];
+			$this->data['seller']['market'] = $seller['ms.market_id'];
+				$this->data['seller']['address'] = $seller['ms.address'];
+				$this->data['seller']['city'] = $seller['ms.city'];
+				$this->data['seller']['exporter'] = $seller['ms.exporter'];
 		$this->data['seller']['nickname'] = $seller['ms.nickname'];
 		$this->data['seller']['seller_id'] = $seller['seller_id'];
 		$this->data['seller']['description'] = html_entity_decode($seller['ms.description'], ENT_QUOTES, 'UTF-8');
@@ -337,6 +341,8 @@ class ControllerSellerCatalogSeller extends ControllerSellerCatalog {
 
 		$this->document->setTitle(sprintf($this->language->get('ms_catalog_seller_profile_heading'), $this->data['seller']['nickname']));
 		
+		
+		
 		$this->data['breadcrumbs'] = $this->MsLoader->MsHelper->setBreadcrumbs(array(
 			array(
 				'text' => $this->language->get('ms_catalog_sellers'),
@@ -347,6 +353,7 @@ class ControllerSellerCatalogSeller extends ControllerSellerCatalog {
 				'href' => $this->url->link('seller/catalog-seller/profile', '&seller_id='.$seller['seller_id'], 'SSL'),
 			)
 		));
+		
 		
 		list($template, $children) = $this->MsLoader->MsHelper->loadTemplate('catalog-seller-profile');
 		$this->response->setOutput($this->load->view($template, array_merge($this->data, $children)));

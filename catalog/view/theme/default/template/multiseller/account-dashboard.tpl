@@ -26,9 +26,9 @@
 		<a href="<?php echo $this->url->link('seller/catalog-seller/profile', 'seller_id=' . $seller['seller_id']); ?>"><img src="<?php echo $seller['avatar']; ?>" /></a><br />
 		<span class="nickname"><?php echo $seller['ms.nickname']; ?></span>
 		<p><span><?php echo $ms_date_created; ?>:</span> <span><?php echo $seller['date_created']; ?></span></p>
-		<p><span><?php echo $ms_account_dashboard_seller_group; ?>:</span> <span><?php echo $seller['seller_group']; ?></span></p>
-		<p>
-			<span><?php echo $ms_account_dashboard_listing; ?>:</span>
+		<p style="display:none;"><span><?php echo $ms_account_dashboard_seller_group; ?>:</span> <span><?php echo $seller['seller_group']; ?></span></p>
+		<p style="display:none;">
+			<span ><?php echo $ms_account_dashboard_listing; ?>:</span>
 			
 			<span>
 			<?php echo $this->currency->format(isset($seller['commission_rates'][MsCommission::RATE_LISTING]['flat']) ? $seller['commission_rates'][MsCommission::RATE_LISTING]['flat'] : 0, $this->config->get('config_currency')); ?>
@@ -36,7 +36,7 @@
 			</span>
 		</p>
 		
-		<p>
+		<p style="display:none;">
 			<span><?php echo $ms_account_dashboard_sale; ?>:</span>
 			
 			<span>
@@ -45,7 +45,7 @@
 			</span>
 		</p>
 		
-		<p>
+		<p style="display:none;">
 			<span><?php echo $ms_account_dashboard_royalty; ?>:</span>
 			
 			<span>
@@ -55,7 +55,7 @@
 		</p>
 	</div>
 
-	<div class="stats col-md-2">
+	<div class="stats col-md-2" style="display:none;" >
 		<h3><?php echo $ms_account_dashboard_stats; ?></h3>
 		<p><span><?php echo $ms_account_dashboard_balance; ?>:</span> <span><?php echo $seller['balance']; ?></span></p>
 		<p><span><?php echo $ms_account_dashboard_total_sales; ?>:</span> <span><?php echo $seller['total_sales']; ?></span></p>
@@ -82,32 +82,32 @@
 			<span><?php echo $ms_account_dashboard_nav_products; ?></span>
 		</a>
 		
-		<a href="<?php echo $this->url->link('seller/account-order', '', 'SSL'); ?>">
+		<a style="display:none;" href="<?php echo $this->url->link('seller/account-order', '', 'SSL'); ?>">
 			<img src="catalog/view/theme/<?php echo $this->config->get('config_template'); ?>/image/ms-cart-96.png" />
 			<span><?php echo $ms_account_dashboard_nav_orders; ?></span>
 		</a>
 		
-		<a href="<?php echo $this->url->link('seller/account-transaction', '', 'SSL'); ?>">
+		<a style="display:none;" href="<?php echo $this->url->link('seller/account-transaction', '', 'SSL'); ?>">
 			<img src="catalog/view/theme/<?php echo $this->config->get('config_template'); ?>/image/ms-book-96.png" />
 			<span><?php echo $ms_account_dashboard_nav_balance; ?></span>
 		</a>
 		
 		<?php if ($this->config->get('msconf_allow_withdrawal_requests')) { ?>
-		<a href="<?php echo $this->url->link('seller/account-withdrawal', '', 'SSL'); ?>">
+		<a style="display:none;" href="<?php echo $this->url->link('seller/account-withdrawal', '', 'SSL'); ?>">
 			<img src="catalog/view/theme/<?php echo $this->config->get('config_template'); ?>/image/ms-dollar.png" />
 			<span><?php echo $ms_account_dashboard_nav_payout; ?></span>
 		</a>
 		<?php } ?>
 		
-		<a href="<?php echo $this->url->link('seller/account-stats', '', 'SSL'); ?>">
+		<a  style="display:none;"href="<?php echo $this->url->link('seller/account-stats', '', 'SSL'); ?>">
 			<img src="catalog/view/theme/<?php echo $this->config->get('config_template'); ?>/image/ms-stats.png" />
 			<span><?php echo $ms_account_stats; ?></span>
 		</a>
 	</div>
     </div>
 
-	<h2><?php echo $ms_account_dashboard_orders; ?></h2>
-	<table class="list table table-bordered">
+	<h2 style="display:none;"><?php  echo $ms_account_dashboard_orders; ?></h2>
+	<table style="display:none;" class="list table table-bordered">
 		<thead>
 			<tr>
 				<td><?php echo $ms_account_orders_id; ?></td>
@@ -152,7 +152,7 @@
 			<?php } ?>
 		<?php } else { ?>
 			<tr>
-				<td class="center" colspan="6"><?php echo $ms_account_orders_noorders; ?></td>
+				<td class="center" colspan="6"><?php //echo $ms_account_orders_noorders; ?></td>
 			</tr>
 		<?php } ?>
 		</tbody>

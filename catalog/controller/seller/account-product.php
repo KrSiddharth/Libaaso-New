@@ -401,17 +401,17 @@ class ControllerSellerAccountProduct extends ControllerSellerAccount {
 			$i++;
 		}
 
-		if ((float)$data['product_price'] == 0) {
-			if (!is_numeric($data['product_price'])) {
-				$json['errors']['product_price'] = $this->language->get('ms_error_product_price_invalid');
-			} else if ($this->config->get('msconf_allow_free_products') == 0) {
-				$json['errors']['product_price'] = $this->language->get('ms_error_product_price_empty');
-			}
-		} else if ((float)$data['product_price'] < (float)$this->config->get('msconf_minimum_product_price')) {
-			$json['errors']['product_price'] = $this->language->get('ms_error_product_price_low');
-		} else if (($this->config->get('msconf_maximum_product_price') != 0) && ((float)$data['product_price'] > (float)$this->config->get('msconf_maximum_product_price'))) {
-			$json['errors']['product_price'] = $this->language->get('ms_error_product_price_high');
-		}
+		//if ((float)$data['product_price'] == 0) {
+			//if (!is_numeric($data['product_price'])) {
+			//	$json['errors']['product_price'] = $this->language->get('ms_error_product_price_invalid');
+			//} else if ($this->config->get('msconf_allow_free_products') == 0) {
+			//	$json['errors']['product_price'] = $this->language->get('ms_error_product_price_empty');
+			//}
+		//} else if ((float)$data['product_price'] < (float)$this->config->get('msconf_minimum_product_price')) {
+		//	$json['errors']['product_price'] = $this->language->get('ms_error_product_price_low');
+		//} else if (($this->config->get('msconf_maximum_product_price') != 0) && ((float)$data['product_price'] > (float)$this->config->get('msconf_maximum_product_price'))) {
+		//	$json['errors']['product_price'] = $this->language->get('ms_error_product_price_high');
+		//}
 
 		$msconf_downloads_limits = $this->config->get('msconf_downloads_limits');
 		if (!isset($data['product_downloads'])) {

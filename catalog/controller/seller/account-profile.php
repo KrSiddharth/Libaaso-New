@@ -28,6 +28,8 @@ class ControllerSellerAccountProfile extends ControllerSellerAccount {
 
 		return $this->response->setOutput(json_encode($json));
 	}
+	
+
 
 	public function jxSaveSellerInfo() {
 		$data = $this->request->post;
@@ -88,14 +90,43 @@ class ControllerSellerAccountProfile extends ControllerSellerAccount {
 			}
 		}
 
-		if (mb_strlen($data['seller']['phone']) > 35 ) {
+		
+		
+		
+		
+		
+		
+		if (mb_strlen($data['seller']['phone']) < 1 ) {
 			$json['errors']['seller[phone]'] = $this->language->get('ms_error_sellerinfo_phone_length');
 		}
-
-		if (mb_strlen($data['seller']['company']) > 50 ) {
-			$json['errors']['seller[company]'] = $this->language->get('ms_error_sellerinfo_company_length');
+		
+		if (mb_strlen($data['seller']['address']) < 1 ) {
+			$json['errors']['seller[address]'] = $this->language->get('ms_error_sellerinfo_address_length');
 		}
 
+
+		if (mb_strlen($data['seller']['company']) < 1 ){
+			$json['errors']['seller[company]'] = $this->language->get('ms_error_sellerinfo_company_length');
+		}
+	
+		if (mb_strlen($data['seller']['market']) < 1 ) {
+			$json['errors']['seller[market]'] = $this->language->get('ms_error_sellerinfo_market_length');
+		}
+		
+		if (mb_strlen($data['seller']['country']) < 1 ) {
+			$json['errors']['seller[country]'] = $this->language->get('ms_error_sellerinfo_country_length');
+		}
+		
+		if (mb_strlen($data['seller']['zone']) < 1 ) {
+			$json['errors']['seller[zone]'] = $this->language->get('ms_error_sellerinfo_zone_length');
+		}
+		
+		if (mb_strlen($data['seller']['city']) < 1 ) {
+			$json['errors']['seller[city]'] = $this->language->get('ms_error_sellerinfo_city_length');
+		}
+		
+		
+		
 		if (mb_strlen($data['seller']['description']) > 1000) {
 			$json['errors']['seller[description]'] = $this->language->get('ms_error_sellerinfo_description_length');
 		}
@@ -366,7 +397,30 @@ class ControllerSellerAccountProfile extends ControllerSellerAccount {
 		}
 
 		$this->load->model('localisation/country');
+		
+	
+		
+		
+		$this->load->model('localisation/market');
+		
+		
+		
+		
 		$this->data['countries'] = $this->model_localisation_country->getCountries();
+		
+		
+		
+		
+		
+		
+		
+		
+		$this->data['markets'] = $this->model_localisation_market->getMarkets();
+		
+		
+		
+		
+		
 
 		$seller = $this->MsLoader->MsSeller->getSeller($this->customer->getId());
 
@@ -390,6 +444,22 @@ class ControllerSellerAccountProfile extends ControllerSellerAccount {
 
 			$this->data['seller'] = $seller; unset($this->data['seller']['banner']);
 			$this->data['country_id'] = $seller['ms.country_id'];
+			
+			
+			
+	
+			
+			$this->data['market_id'] = $seller['ms.market_id'];
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 
 			if (!empty($seller['ms.avatar'])) {
 				$this->data['seller']['avatar']['name'] = $seller['ms.avatar'];
@@ -423,6 +493,24 @@ class ControllerSellerAccountProfile extends ControllerSellerAccount {
 		} else {
 			$this->data['seller'] = FALSE;
 			$this->data['country_id'] = $this->config->get('config_country_id');
+			
+			
+			
+			
+			$this->data['market_id'] = $this->config->get('config_market_id');
+			
+		
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 
 
 			$this->data['statustext'] = $this->language->get('ms_account_status_please_fill_in');

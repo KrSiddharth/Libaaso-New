@@ -235,8 +235,21 @@ $_['ms_error_sellerinfo_nickname_utf8'] = 'Nickname can only contain printable U
 $_['ms_error_sellerinfo_nickname_latin'] = 'Nickname can only contain alphanumeric symbols and diacritics';
 $_['ms_error_sellerinfo_nickname_length'] = 'Nickname should be between 4 and 50 characters';
 $_['ms_error_sellerinfo_nickname_taken'] = 'This nickname is already taken';
-$_['ms_error_sellerinfo_phone_length'] = 'Phone number cannot be longer than 35 characters';
-$_['ms_error_sellerinfo_company_length'] = 'Company name cannot be longer than 50 characters';
+$_['ms_error_sellerinfo_phone_length'] = 'Please specify your phone number';
+$_['ms_error_sellerinfo_exporter_length'] = 'Please answer this question';
+$_['ms_error_sellerinfo_address_length'] = 'Please specify your address';
+$_['ms_error_sellerinfo_company_length'] = 'Please specify your Shopname';
+$_['ms_error_sellerinfo_market_length'] = 'Please specify your market name';
+$_['ms_error_sellerinfo_country_length'] = 'Please specify your country';
+$_['ms_error_sellerinfo_city_length'] = 'Please specify your city ';
+$_['ms_error_sellerinfo_zone_length'] = 'Please specify your state ';
+
+
+
+
+
+
+
 $_['ms_error_sellerinfo_description_length'] = 'Description cannot be longer than 1000 characters';
 $_['ms_error_sellerinfo_paypal'] = 'Invalid PayPal address';
 $_['ms_error_sellerinfo_terms'] = 'Warning: You must agree to the %s!';
@@ -309,7 +322,7 @@ $_['ms_account_withdraw'] = 'Request payout';
 $_['ms_account_stats'] = 'Statistics';
 
 // Account - New product
-$_['ms_account_newproduct_heading'] = 'New Product';
+$_['ms_account_newproduct_heading'] = 'New Catalogue';
 $_['ms_account_newproduct_breadcrumbs'] = 'New Product';
 //General Tab
 $_['ms_account_product_tab_general'] = 'General';
@@ -319,7 +332,7 @@ $_['ms_account_product_name_description'] = 'Name & Description';
 $_['ms_account_product_name'] = 'Name';
 $_['ms_account_product_name_note'] = 'Specify a name for your product';
 $_['ms_account_product_description'] = 'Description';
-$_['ms_account_product_description_note'] = 'Describe your product';
+$_['ms_account_product_description_note'] = 'Describe your product(Min 25 characters)';
 $_['ms_account_product_meta_description'] = 'Meta Tag Description';
 $_['ms_account_product_meta_description_note'] = 'Specify Meta Tag Description for your product';
 $_['ms_account_product_meta_keyword'] = 'Meta Tag Keywords';
@@ -416,23 +429,58 @@ $_['ms_account_relist_product_breadcrumbs'] = 'Relist Product';
 // Account - Seller
 $_['ms_account_sellerinfo_heading'] = 'Seller Profile';
 $_['ms_account_sellerinfo_breadcrumbs'] = 'Seller Profile';
-$_['ms_account_sellerinfo_nickname'] = 'Nickname';
-$_['ms_account_sellerinfo_nickname_note'] = 'Specify your seller nickname.';
+$_['ms_account_sellerinfo_nickname'] = 'Username';
+$_['ms_account_sellerinfo_nickname_note'] = 'Username';
 $_['ms_account_sellerinfo_description'] = 'Description';
 $_['ms_account_sellerinfo_description_note'] = 'Describe yourself';
-$_['ms_account_sellerinfo_phone'] = 'Phone';
-$_['ms_account_sellerinfo_phone_note'] = 'Your phone number (optional)';
-$_['ms_account_sellerinfo_company'] = 'Company';
-$_['ms_account_sellerinfo_company_note'] = 'Your company (optional)';
+$_['ms_account_sellerinfo_phone'] = 'Phone ';
+$_['ms_account_sellerinfo_phone_note'] = 'Your phone number (necessary)';
+$_['ms_account_sellerinfo_exporter'] = 'Are u an exporter?';
+$_['ms_account_sellerinfo_exporter_note'] = '';
+$_['ms_account_sellerinfo_address'] = 'Address ';
+$_['ms_account_sellerinfo_address_note'] = 'Your address (necessary)';
+$_['ms_account_sellerinfo_city'] = 'City';
+$_['ms_account_sellerinfo_city_note'] = 'Your city (necessary)';
+$_['ms_account_sellerinfo_company'] = 'Shopname ';
+
+
+$_['ms_account_sellerinfo_market'] = 'Market';
+
+
+
+$_['ms_account_sellerinfo_company_note'] = 'Your shopname (necessary)';
+
+
+
+$_['ms_account_sellerinfo_market_note'] = 'Market name (necessary)';
+
+
+
 $_['ms_account_sellerinfo_country'] = 'Country';
+
+
+
+
+
+
+
+
+
+$_['ms_account_sellerinfo_market'] = 'Market';
+
+
+
+
+
+
 $_['ms_account_sellerinfo_country_dont_display'] = 'Do not display my country';
-$_['ms_account_sellerinfo_country_note'] = 'Select your country.';
+$_['ms_account_sellerinfo_country_note'] = 'Select your country (necessary)';
 $_['ms_account_sellerinfo_zone'] = 'Region / State';
-$_['ms_account_sellerinfo_zone_select'] = 'Select region/state';
+$_['ms_account_sellerinfo_zone_select'] = 'Select region/state ';
 $_['ms_account_sellerinfo_zone_not_selected'] = 'No region/state selected';
-$_['ms_account_sellerinfo_zone_note'] = 'Select your region/state from the list.';
-$_['ms_account_sellerinfo_avatar'] = 'Avatar';
-$_['ms_account_sellerinfo_avatar_note'] = 'Select your avatar';
+$_['ms_account_sellerinfo_zone_note'] = 'Select your region/state from the list (necessary)';
+$_['ms_account_sellerinfo_avatar'] = 'Logo';
+$_['ms_account_sellerinfo_avatar_note'] = 'Select your logo';
 $_['ms_account_sellerinfo_banner'] = 'Banner';
 $_['ms_account_sellerinfo_banner_note'] = 'Upload a banner that will be displayed on your profile page';
 $_['ms_account_sellerinfo_paypal'] = 'Paypal';
@@ -596,8 +644,8 @@ $_['ms_account_dashboard_earnings_month'] = 'Earnings this month';
 $_['ms_account_dashboard_nav'] = 'Quick navigation';
 $_['ms_account_dashboard_nav_profile'] = 'Modify your seller profile';
 $_['ms_account_dashboard_nav_setting'] = 'Modify your seller settings';
-$_['ms_account_dashboard_nav_product'] = 'Create a new product';
-$_['ms_account_dashboard_nav_products'] = 'Manage your products';
+$_['ms_account_dashboard_nav_product'] = 'Create a new catalogue';
+$_['ms_account_dashboard_nav_products'] = 'Manage your catalogues';
 $_['ms_account_dashboard_nav_orders'] = 'View your orders';
 $_['ms_account_dashboard_nav_balance'] = 'View your financial records';
 $_['ms_account_dashboard_nav_payout'] = 'Request your payout';
@@ -656,14 +704,31 @@ $_['ms_account_stats_grand_total_sales'] = 'Grand total sales';
 // Product page - Seller information
 
 $_['ms_catalog_seller_profile_phone'] = 'Phone:';
+$_['ms_catalog_seller_profile_exporter'] = 'Exporter:';
+$_['ms_catalog_seller_profile_market'] = 'Market:';
+$_['ms_catalog_seller_profile_city'] = 'City:';
+$_['ms_catalog_seller_profile_address'] = 'Address:';
 $_['ms_catalog_product_sellerinfo'] = 'Seller information';
-$_['ms_catalog_product_contact'] = 'Contact this seller';
+$_['ms_catalog_product_contact'] = 'Contact seller';
 
 $_['ms_footer'] = '<br>MultiMerch Marketplace by <a href="http://multimerch.com/">multimerch.com</a>';
 
 // Catalog - Sellers list
 $_['ms_catalog_sellers_heading'] = 'Sellers';
 $_['ms_catalog_sellers_country'] = 'Country:';
+
+
+
+
+$_['ms_catalog_sellers_market'] = 'Market:';
+
+
+$_['ms_catalog_sellers_exporter'] = 'Exporter:';
+
+
+
+
+
 $_['ms_catalog_sellers_website'] = 'Website:';
 $_['ms_catalog_sellers_company'] = 'Company:';
 $_['ms_catalog_sellers_totalsales'] = 'Sales:';
@@ -672,6 +737,15 @@ $_['ms_sort_country_desc'] = 'Country (Z - A)';
 $_['ms_sort_country_asc'] = 'Country (A - Z)';
 $_['ms_sort_nickname_desc'] = 'Name (Z - A)';
 $_['ms_sort_nickname_asc'] = 'Name (A - Z)';
+
+
+
+
+$_['ms_sort_market_desc'] = 'Market (Z - A)';
+$_['ms_sort_market_asc'] = 'Market (A - Z)';
+
+
+
 
 // Catalog - Seller profile page
 $_['ms_catalog_sellers'] = 'Sellers';
@@ -699,7 +773,7 @@ $_['ms_catalog_seller_products_breadcrumbs'] = '%s\'s products';
 $_['ms_catalog_seller_products_empty'] = 'This seller doesn\'t have any products yet!';
 
 // Catalog - Seller contact dialog
-$_['ms_sellercontact_title'] = 'Send a message to seller';
+$_['ms_sellercontact_title'] = 'Contact this seller';
 $_['ms_sellercontact_signin'] = 'Please <a href="%s">sign in</a> to contact %s';
 $_['ms_sellercontact_sendto'] = 'Send a message to %s';
 $_['ms_sellercontact_text'] = 'Message: ';
