@@ -20,6 +20,7 @@ class ControllerAccountRecurring extends Controller {
 		}
 
 		$data['breadcrumbs'] = array();
+		////////huuuuuuuu
 
 		$data['breadcrumbs'][] = array(
 			'text'      => $this->language->get('text_home'),

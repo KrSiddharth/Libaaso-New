@@ -27,7 +27,7 @@
 		<input type="hidden" name="action" id="ms_action" />
 		<input type="hidden" name="list_until" value="<?php echo isset($list_until) ? $list_until : '' ?>" />
 
-		<ul id="general-tabs" class="nav nav-tabs">
+		<ul style="display:none;" id="general-tabs" class="nav nav-tabs">
 			<li class="active"><a href="#tab-general" data-toggle="tab"><?php echo $ms_account_product_tab_general; ?></a></li>
 
 			<?php
@@ -50,7 +50,7 @@
 
      	<!-- general tab -->
 		<div class="tab-content ms-product">
-     	<div id="tab-general" class="tab-pane active">
+     	<div  id="tab-general" class="tab-pane active">
      		<?php if (count($languages) > 1) { ?>
 			<?php $first = key($languages); ?>
 			<ul class="nav nav-tabs" id="language-tabs">
@@ -113,7 +113,7 @@
 					</div>
                     <?php } ?>
 
-					<div class="form-group">
+					<div class="form-group"style="display:none;">
 						<label class="col-sm-2 control-label"><?php echo $ms_account_product_tags; ?></label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" name="languages[<?php echo $langId; ?>][product_tags]" value="<?php echo $product['languages'][$langId]['tags']; ?>" />
@@ -150,7 +150,7 @@
 			<fieldset>
             	<legend><?php echo $ms_account_product_price_attributes; ?></legend>
 
-				<div class="form-group required">
+				<div class="form-group " style="display:none;">
 					<label class="col-sm-2 control-label"><?php echo $ms_account_product_price; ?></label>
 					<div class="col-sm-10">
 						<span class="vertical-align: auto"><?php echo $this->currency->getSymbolLeft($this->config->get('config_currency')); ?></span>
@@ -358,7 +358,7 @@
 					</div>
 				</div>
 
-				<div class="form-group <?php if ($msconf_downloads_limits[0] > 0) { echo 'required'; } ?>">
+				<div class="form-group <?php if ($msconf_downloads_limits[0] > 0) { echo 'required'; } ?>" style="display:none;">
 					<label class="col-sm-2 control-label"><?php echo $ms_account_product_download; ?></label>
 					<div class="col-sm-10">
 						<!--<input type="file" name="ms-file-addfiles" id="ms-file-addfiles" />-->
@@ -537,7 +537,7 @@
 			<?php } ?>
 
 			<?php if (in_array('filters', $this->config->get('msconf_product_included_fields'))) { ?>
-			<div class="form-group">
+			<div class="form-group" >
 				<label class="col-sm-2 control-label" for="input-filter"><span data-toggle="tooltip"><?php echo $this->language->get('ms_entry_filter'); ?></span></label>
 				<div class="col-sm-10">
 					<input type="text" name="filter" value="" placeholder="<?php echo $this->language->get('ms_autocomplete'); ?>" id="input-filter" class="form-control" />
@@ -554,12 +554,12 @@
         </div>
 
 		<!-- options tab -->
-		<div id="tab-options" class="tab-pane"></div>
+		<div id="tab-options" class="tab-pane" ></div>
 
 		<!-- specials tab -->
 		<?php if ($this->config->get('msconf_allow_specials')) { ?>
-		<div id="tab-specials" class="tab-pane">
-			<legend><?php echo $ms_account_product_tab_specials; ?></legend>
+		<div id="tab-specials" class="tab-pane" >
+			< legend ><?php echo $ms_account_product_tab_specials; ?></legend>
 			<p class="error" id="error_specials"></p>
 
 			<table class="list table table-bordered table-hover">

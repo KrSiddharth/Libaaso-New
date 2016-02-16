@@ -1,4 +1,6 @@
-<?php echo $header; ?>
+<?php echo $header; 
+$Err = "" ;
+?>
 <div class="container">
   <ul class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
@@ -58,24 +60,62 @@
 				<p class="ms-note"><?php echo $ms_account_sellerinfo_description_note; ?></p>
 			</div>
 		</div>
-
-		<div class="form-group">
-			<label class="col-sm-2 control-label"><?php echo $ms_account_sellerinfo_phone; ?></label>
-			<div class="col-sm-10">
-				<input type="text" class="form-control"  name="seller[phone]" value="<?php echo $seller['ms.phone']; ?>" />
-				<p class="ms-note"><?php echo $ms_account_sellerinfo_phone_note; ?></p>
-			</div>
-		</div>
-
-		<div class="form-group">
+		
+		
+		<div class="form-group required">
 			<label class="col-sm-2 control-label"><?php echo $ms_account_sellerinfo_company; ?></label>
 			<div class="col-sm-10">
 				<input type="text" class="form-control"  name="seller[company]" value="<?php echo $seller['ms.company']; ?>" />
 				<p class="ms-note"><?php echo $ms_account_sellerinfo_company_note; ?></p>
 			</div>
 		</div>
+		
+		
+		
+		
+		
+		
+		<div class="form-group required">
+			<label class="col-sm-2 control-label"><?php echo $ms_account_sellerinfo_market; ?></label>
+			<div class="col-sm-10">
+			
+			
+			
+			
+			
+				<select name="seller[market]" class="form-control">
+					<option value="" selected="selected"></option>
+					<?php foreach ($markets as $market) { ?>
+					<option value="<?php echo $market['market_id']; ?>" <?php if ($seller['ms.market_id'] == $market['market_id'] || $market_id == $market['market_id']) { ?>selected="selected"<?php } ?>><?php echo $market['name']; ?></option>
+					<?php } ?>
+				</select>
+				
+				
+				
+				
+				<p class="ms-note"><?php echo $ms_account_sellerinfo_market_note; ?></p>
+			</div>
+		</div>
+		
+		<div class="form-group required">
+			<label class="col-sm-2 control-label"><?php echo $ms_account_sellerinfo_address; ?></label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control"  name="seller[address]" value="<?php echo $seller['ms.address']; ?>" />
+				<p class="ms-note"><?php echo $ms_account_sellerinfo_address_note; ?></p>
+			</div>
+		</div>
+		
+			<div class="form-group required">
+    <label class="col-sm-2 control-label"><?php echo $ms_account_sellerinfo_city; ?></label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control"  name="seller[city]" value="<?php echo $seller['ms.city']; ?>" />
+        <p class="ms-note"><?php echo $ms_account_sellerinfo_city_note; ?></p>
+		
+	</div>
+</div>
 
-		<div class="form-group">
+
+<div class="form-group required">
 			<label class="col-sm-2 control-label"><?php echo $ms_account_sellerinfo_country; ?></label>
 			<div class="col-sm-10">
 				<select name="seller[country]" class="form-control">
@@ -87,24 +127,71 @@
 				<p class="ms-note"><?php echo $ms_account_sellerinfo_country_note; ?></p>
 			</div>
 		</div>
-
-		<div class="form-group">
+<div class="form-group required">
 			<label class="col-sm-2 control-label"><?php echo $ms_account_sellerinfo_zone; ?></label>
 			<div class="col-sm-10">
 				<select name="seller[zone]" class="form-control"></select>
 				<p class="ms-note"><?php echo $ms_account_sellerinfo_zone_note; ?></p>
 			</div>
 		</div>
+		
+		
+	
+		<div class="form-group required">
+			<label class="col-sm-2 control-label"><?php echo $ms_account_sellerinfo_phone; ?></label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control"  name="seller[phone]" value="<?php echo $seller['ms.phone']; ?>" />
+				<p class="ms-note"><?php echo $ms_account_sellerinfo_phone_note; ?></p>
+			</div>
+		</div>
+		
 
-		<div class="form-group">
+	<!--
+		<div class="form-group required">
+			<label class="col-sm-2 control-label"><?php echo $ms_account_sellerinfo_exporter; ?></label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control"  name="seller[exporter]" value="<?php echo $seller['ms.exporter']; ?>" />
+				<p class="ms-note"><?php echo $ms_account_sellerinfo_exporter_note; ?></p>
+			</div>
+		</div>
+		
+		-->
+		<? php
+		
+			if (empty($_POST["seller[exporter]"])) {
+     $Err = "Field is required";
+   } else {
+     $seller['ms.exporter'] = test_input($_POST["seller[exporter]"]);
+   }
+   ?>
+		
+		<div class="form-group required">
+			<label class="col-sm-2 control-label"><?php  echo $ms_account_sellerinfo_exporter; ?></label>
+			<div class="col-sm-10">
+				<input type="radio"  name="seller[exporter]" <?php if (isset($Ans) && $Ans=="Yes") echo "checked";?> value="Yes" />Yes
+				<input type="radio"  name="seller[exporter]" <?php if (isset($Ans) && $Ans=="No") echo "checked";?>  value="No" />No
+				<p class="ms-note"><?php echo $ms_account_sellerinfo_exporter_note; ?></p>
+				<span class="error"> <?php echo $Err;?></span>
+			</div>
+		</div>
+		
+	
+		
+  
+			
+		<div class="form-group" style="display:none;">
 			<label class="col-sm-2 control-label"><?php echo $ms_account_sellerinfo_paypal; ?></label>
 			<div class="col-sm-10">
 				<input type="text" class="form-control"  name="seller[paypal]" value="<?php echo $seller['ms.paypal']; ?>" />
 				<p class="ms-note"><?php echo $ms_account_sellerinfo_paypal_note; ?></p>
 			</div>
 		</div>
+		
+		
+		
+		
 
-		<div class="form-group">
+		<div class="form-group ">
 			<label class="col-sm-2 control-label"><?php echo $ms_account_sellerinfo_avatar; ?></label>
 			<div class="col-sm-10">
 				<!--<input type="file" name="ms-file-selleravatar" id="ms-file-selleravatar" />-->

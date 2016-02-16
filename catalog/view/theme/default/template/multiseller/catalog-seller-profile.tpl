@@ -86,7 +86,16 @@
 				<ul class="list-unstyled">
 					<li><h3><?php echo $seller['nickname']; ?></h3></li>
 					<?php if (isset($seller['country']) && $seller['country']) { ?><li><?php echo $ms_catalog_seller_profile_country; ?> <?php echo $seller['country']; ?></li><?php } ?>
+					<!--
 					<?php if (isset($seller['phone']) && $seller['phone']) { ?><li><?php echo $ms_catalog_seller_profile_phone; ?> <?php echo $seller['phone']; ?></li><?php } ?>
+-->
+				<?php if (isset($seller['exporter']) && $seller['exporter']) { ?><li><?php echo $ms_catalog_seller_profile_exporter; ?> <?php echo $seller['exporter']; ?></li><?php } ?>
+		<?php if (isset($seller['market']) && $seller['market']) { ?><li><?php echo $ms_catalog_seller_profile_market; ?> <?php echo $seller['market']; ?></li><?php } ?>
+					<!--
+					<?php if (isset($seller['address']) && $seller['address']) { ?><li><?php echo $ms_catalog_seller_profile_address; ?> <?php echo $seller['address']; ?></li><?php } ?>
+					-->
+					
+					<?php if (isset($seller['city']) && $seller['city']) { ?><li><?php echo $ms_catalog_seller_profile_city; ?> <?php echo $seller['city']; ?></li><?php } ?>
 					<?php if (isset($seller['company']) && $seller['company']) { ?><li><?php echo $ms_catalog_seller_profile_company; ?> <?php echo $seller['company']; ?></li><?php } ?>
 					<?php if ($seller['website']) { ?><li><?php echo $ms_catalog_seller_profile_website; ?> <?php echo $seller['website']; ?></li><?php } ?>
 					<li><?php echo $ms_catalog_seller_profile_totalsales; ?> <?php echo $seller['total_sales']; ?></li>
@@ -98,8 +107,63 @@
 
 			<?php if ($this->config->get('mmess_conf_enable') || $this->config->get('msconf_enable_private_messaging') == 2) { ?>
 				<?php if ((!$this->customer->getId()) || ($this->customer->getId() != $seller['seller_id'])) { ?>
+					
 					<?php echo $contactForm; ?>
-					<div class="contact">
+					
+					
+					
+					
+					
+					
+					
+					<!-- Button trigger modal -->
+								<div class="contact">
+                                    <?php if ($this->customer->getId()) { ?>
+<button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#myModal">
+  Contact Seller
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Contact Info</h4>
+      </div>
+      <div class="modal-body">
+        
+		
+	<?php echo $seller['phone']; ?>
+		
+      </div>
+	  <div class="modal-body">
+        
+		
+	<?php echo $seller['address']; ?>
+		
+      </div>
+      
+    </div>
+  </div>
+</div>
+										<?php } else { ?>
+                                        <?php echo sprintf($this->language->get('ms_sellercontact_signin'), $this->url->link('account/login', '', 'SSL'), $seller['nickname']); ?>
+                                    <?php } ?>
+                                </div>
+								
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					<div class="contact" style = "display:none">
 						<h3><?php echo $ms_sellercontact_title ?></h3>
 						<?php if ($this->customer->getId()) { ?>
 						  <div class="button-group">

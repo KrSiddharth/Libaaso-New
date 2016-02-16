@@ -16,6 +16,8 @@ final class MsSeller extends Model {
 	private $description;
 	private $company;
 	private $country_id;
+	private $market_id;
+	private $exporter_id;
 	private $avatar;
 	private $seller_status;
 	private $paypal;
@@ -35,6 +37,7 @@ final class MsSeller extends Model {
 				$this->description = $seller_query->row['description'];
 				$this->company = $seller_query->row['company'];
 				$this->country_id = $seller_query->row['country_id'];
+				$this->market_id = $seller_query->row['market_id'];
 				$this->avatar = $seller_query->row['avatar'];
 				$this->seller_status = $seller_query->row['seller_status'];
 				$this->paypal = $seller_query->row['paypal'];
@@ -94,9 +97,13 @@ final class MsSeller extends Model {
 					seller_group = " .  (isset($data['seller_group']) ? (int)$data['seller_group'] : $this->config->get('msconf_default_seller_group_id'))  .  ",
 					nickname = '" . $this->db->escape($data['nickname']) . "',
 					phone = '" . (isset($data['phone']) ? $this->db->escape($data['phone']) : '') . "',
+					exporter = '" . (isset($data['exporter']) ? $this->db->escape($data['exporter']) : '') . "',
+					address = '" . (isset($data['address']) ? $this->db->escape($data['address']) : '') . "',
+					city = '" . (isset($data['city']) ? $this->db->escape($data['city']) : '') . "',
 					description = '" . $this->db->escape(isset($data['description']) ? $data['description'] : '') . "',
 					company = '" . $this->db->escape(isset($data['company']) ? $data['company'] : '') . "',
 					country_id = " . (isset($data['country']) ? (int)$data['country'] : 0) . ",
+					market_id = " . (isset($data['market']) ? (int)$data['market'] : 0) . ",
 					zone_id = " . (isset($data['zone']) ? (int)$data['zone'] : 0) . ",
 					commission_id = " . (isset($commission_id) ? $commission_id : 'NULL') . ",
 					product_validation = " . (isset($data['product_validation']) ? (int)$data['product_validation'] : $this->config->get('msconf_product_validation')) . ",
@@ -162,8 +169,12 @@ final class MsSeller extends Model {
 				SET description = '" . $this->db->escape($data['description']) . "',
 					company = '" . $this->db->escape($data['company']) . "',
 					nickname = '" . $this->db->escape($data['nickname']) . "',
+					city = '" . (isset($data['city']) ? $this->db->escape($data['city']) : '') . "',
 					phone = '" . (isset($data['phone']) ? $this->db->escape($data['phone']) : '') . "',
+					exporter= '" . (isset($data['exporter']) ? $this->db->escape($data['exporter']) : '') . "',
+					address = '" . (isset($data['address']) ? $this->db->escape($data['address']) : '') . "',
 					country_id = " . (int)$data['country'] . ",
+					market_id = " . (int)$data['market'] . ",
 					zone_id = " . (int)$data['zone'] . ","
 					. (isset($data['status']) ? "seller_status=  " .  (int)$data['status'] . "," : '')
 					. (isset($data['approved']) ? "seller_approved=  " .  (int)$data['approved'] . "," : '')
@@ -204,6 +215,12 @@ final class MsSeller extends Model {
   		return $this->country_id;
   	}
 
+	public function getMarketId() {
+  		return $this->market_id;
+  	}
+	
+	
+	
   	public function getDescription() {
   		return $this->description;
   	}
@@ -261,6 +278,9 @@ final class MsSeller extends Model {
 				SET description = '" . $this->db->escape($data['description']) . "',
 					company = '" . $this->db->escape($data['company']) . "',
 					country_id = " . (int)$data['country'] . ",
+					
+					market_id = " . (int)$data['market'] . ",
+				
 					paypal = '" . $this->db->escape($data['paypal']) . "',
 					seller_status = '" .  (int)$data['status'] .  "',
 					zone_id = " . (int)$data['zone'] . ",
@@ -293,6 +313,8 @@ final class MsSeller extends Model {
 						c.email as 'c.email',
 						ms.seller_id as 'seller_id',
 						ms.phone as 'ms.phone',
+						ms.exporter as 'ms.exporter',
+						ms.address as 'ms.address',
 						ms.nickname as 'ms.nickname',
 						ms.company as 'ms.company',
 						ms.website as 'ms.website',
@@ -304,7 +326,9 @@ final class MsSeller extends Model {
 						ms.avatar as 'ms.avatar',
 						ms.banner as 'banner',
 						ms.country_id as 'ms.country_id',
+						ms.market_id as 'ms.market_id',
 						ms.zone_id as 'ms.zone_id',
+						ms.city as 'ms.city',
 						ms.description as 'ms.description',
 						ms.commission_id as 'ms.commission_id',
 						ms.seller_group as 'ms.seller_group',
@@ -379,6 +403,8 @@ final class MsSeller extends Model {
 					." CONCAT(c.firstname, ' ', c.lastname) as 'c.name',
 					c.email as 'c.email',
 					ms.phone as 'ms.phone',
+					ms.exporter as 'ms.exporter',
+					ms.address as 'ms.address',
 					ms.seller_id as 'seller_id',
 					ms.nickname as 'ms.nickname',
 					ms.company as 'ms.company',
@@ -389,7 +415,9 @@ final class MsSeller extends Model {
 					ms.avatar as 'ms.avatar',
 					ms.banner as 'banner',
 					ms.country_id as 'ms.country_id',
+					ms.market_id as 'ms.market_id',
 					ms.zone_id as 'ms.zone_id',
+					ms.city as 'ms.city',
 					ms.description as 'ms.description',
 					ms.paypal as 'ms.paypal',
 					IFNULL(SUM(mp.number_sold), 0) as 'total_sales'
