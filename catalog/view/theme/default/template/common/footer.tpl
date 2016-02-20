@@ -1,11 +1,4 @@
 <footer>
-  <div id="christmasFooter">
-    <span class="quote">"We wish you a new year which brings with it wonder,
-health and success.Have a great 2016!"</span>
-    <br/>
-    <div class="horizontalRule"></div>
-    <div class="author"><span>Team Libaaso</span></div>
-  </div>
   <div class="container">
     <div class="row">
       <?php if ($informations) { ?>

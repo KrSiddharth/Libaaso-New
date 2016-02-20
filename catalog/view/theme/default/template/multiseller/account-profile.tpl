@@ -39,85 +39,74 @@ $Err = "" ;
 
 		<div class="form-group required">
 			<?php if (!$this->config->get('msconf_change_seller_nickname') && !empty($seller['ms.nickname'])) { ?>
-				<label class="col-sm-2 control-label"><?php echo $ms_account_sellerinfo_nickname; ?></label>
-				<div class="col-sm-10">
+				<label class="control-label"><?php echo $ms_account_sellerinfo_nickname; ?></label>
+				<div>
 					<b><?php echo $seller['ms.nickname']; ?></b>
 				</div>
 			<?php } else { ?>
-				<label class="col-sm-2 control-label"><?php echo $ms_account_sellerinfo_nickname; ?></label>
-				<div class="col-sm-10">
+				<label class="control-label"><?php echo $ms_account_sellerinfo_nickname; ?></label>
+				<div>
 					<input type="text" class="form-control"  name="seller[nickname]" value="<?php echo $seller['ms.nickname']; ?>" />
 					<p class="ms-note"><?php echo $ms_account_sellerinfo_nickname_note; ?></p>
 				</div>
 			<?php } ?>
 		</div>
 
-		<div class="form-group">
-			<label class="col-sm-2 control-label"><?php echo $ms_account_sellerinfo_description; ?></label>
-			<div class="col-sm-10">
+		<div class="form-group required">
+			<label class="control-label"><?php echo $ms_account_sellerinfo_company; ?></label>
+			<div>
+				<input type="text" class="form-control"  name="seller[company]" value="<?php echo $seller['ms.company']; ?>" />
+				<p class="ms-note"><?php echo $ms_account_sellerinfo_company_note; ?></p>
+			</div>
+		</div>
+
+		<div class="form-group full-width">
+			<label class="control-label"><?php echo $ms_account_sellerinfo_description; ?></label>
+			<div>
 				<!-- todo strip tags if rte disabled -->
 				<textarea name="seller[description]" id="seller_textarea" class="form-control <?php echo $this->config->get('msconf_enable_rte') ? 'ckeditor' : ''; ?>"><?php echo $this->config->get('msconf_enable_rte') ? htmlspecialchars_decode($seller['ms.description']) : strip_tags(htmlspecialchars_decode($seller['ms.description'])); ?></textarea>
 				<p class="ms-note"><?php echo $ms_account_sellerinfo_description_note; ?></p>
 			</div>
 		</div>
+
 		
 		
 		<div class="form-group required">
-			<label class="col-sm-2 control-label"><?php echo $ms_account_sellerinfo_company; ?></label>
-			<div class="col-sm-10">
-				<input type="text" class="form-control"  name="seller[company]" value="<?php echo $seller['ms.company']; ?>" />
-				<p class="ms-note"><?php echo $ms_account_sellerinfo_company_note; ?></p>
-			</div>
-		</div>
-		
-		
-		
-		
-		
-		
-		<div class="form-group required">
-			<label class="col-sm-2 control-label"><?php echo $ms_account_sellerinfo_market; ?></label>
-			<div class="col-sm-10">
-			
-			
-			
-			
-			
+			<label class="control-label"><?php echo $ms_account_sellerinfo_market; ?></label>
+			<div>
 				<select name="seller[market]" class="form-control">
 					<option value="" selected="selected"></option>
 					<?php foreach ($markets as $market) { ?>
-					<option value="<?php echo $market['market_id']; ?>" <?php if ($seller['ms.market_id'] == $market['market_id'] || $market_id == $market['market_id']) { ?>selected="selected"<?php } ?>><?php echo $market['name']; ?></option>
+					<option value="<?php echo $market['market_id'];?>" <?php if ($seller['ms.market_id'] == $market['market_id'] || $market_id == $market['market_id']) { ?>selected="selected"<?php } ?>><?php echo $market['name']; ?></option>
 					<?php } ?>
 				</select>
-				
-				
-				
-				
 				<p class="ms-note"><?php echo $ms_account_sellerinfo_market_note; ?></p>
 			</div>
 		</div>
-		
+
 		<div class="form-group required">
-			<label class="col-sm-2 control-label"><?php echo $ms_account_sellerinfo_address; ?></label>
-			<div class="col-sm-10">
+			<label class=" control-label"><?php echo $ms_account_sellerinfo_city; ?></label>
+			<div>
+				<input type="text" class="form-control"  name="seller[city]" value="<?php echo $seller['ms.city']; ?>" />
+				<p class="ms-note"><?php echo $ms_account_sellerinfo_city_note; ?></p>
+
+			</div>
+		</div>
+		
+		<div class="form-group full-width required">
+			<label class="control-label"><?php echo $ms_account_sellerinfo_address; ?></label>
+			<div>
 				<input type="text" class="form-control"  name="seller[address]" value="<?php echo $seller['ms.address']; ?>" />
 				<p class="ms-note"><?php echo $ms_account_sellerinfo_address_note; ?></p>
 			</div>
 		</div>
 		
-			<div class="form-group required">
-    <label class="col-sm-2 control-label"><?php echo $ms_account_sellerinfo_city; ?></label>
-    <div class="col-sm-10">
-        <input type="text" class="form-control"  name="seller[city]" value="<?php echo $seller['ms.city']; ?>" />
-        <p class="ms-note"><?php echo $ms_account_sellerinfo_city_note; ?></p>
-		
-	</div>
-</div>
 
 
-<div class="form-group required">
-			<label class="col-sm-2 control-label"><?php echo $ms_account_sellerinfo_country; ?></label>
-			<div class="col-sm-10">
+
+		<div class="form-group required">
+			<label class=" control-label"><?php echo $ms_account_sellerinfo_country; ?></label>
+			<div>
 				<select name="seller[country]" class="form-control">
 					<option value="" selected="selected"><?php echo $ms_account_sellerinfo_country_dont_display; ?></option>
 					<?php foreach ($countries as $country) { ?>
@@ -127,9 +116,10 @@ $Err = "" ;
 				<p class="ms-note"><?php echo $ms_account_sellerinfo_country_note; ?></p>
 			</div>
 		</div>
-<div class="form-group required">
-			<label class="col-sm-2 control-label"><?php echo $ms_account_sellerinfo_zone; ?></label>
-			<div class="col-sm-10">
+
+		<div class="form-group required">
+			<label class=" control-label"><?php echo $ms_account_sellerinfo_zone; ?></label>
+			<div>
 				<select name="seller[zone]" class="form-control"></select>
 				<p class="ms-note"><?php echo $ms_account_sellerinfo_zone_note; ?></p>
 			</div>
@@ -138,8 +128,8 @@ $Err = "" ;
 		
 	
 		<div class="form-group required">
-			<label class="col-sm-2 control-label"><?php echo $ms_account_sellerinfo_phone; ?></label>
-			<div class="col-sm-10">
+			<label class="control-label"><?php echo $ms_account_sellerinfo_phone; ?></label>
+			<div>
 				<input type="text" class="form-control"  name="seller[phone]" value="<?php echo $seller['ms.phone']; ?>" />
 				<p class="ms-note"><?php echo $ms_account_sellerinfo_phone_note; ?></p>
 			</div>
@@ -153,12 +143,9 @@ $Err = "" ;
 				<input type="text" class="form-control"  name="seller[exporter]" value="<?php echo $seller['ms.exporter']; ?>" />
 				<p class="ms-note"><?php echo $ms_account_sellerinfo_exporter_note; ?></p>
 			</div>
-		</div>
-		
-		-->
-		<? php
-		
-			if (empty($_POST["seller[exporter]"])) {
+		</div>-->
+
+		<?php if(empty($_POST["seller[exporter]"])) {
      $Err = "Field is required";
    } else {
      $seller['ms.exporter'] = test_input($_POST["seller[exporter]"]);
@@ -166,10 +153,12 @@ $Err = "" ;
    ?>
 		
 		<div class="form-group required">
-			<label class="col-sm-2 control-label"><?php  echo $ms_account_sellerinfo_exporter; ?></label>
-			<div class="col-sm-10">
-				<input type="radio"  name="seller[exporter]" <?php if (isset($Ans) && $Ans=="Yes") echo "checked";?> value="Yes" />Yes
-				<input type="radio"  name="seller[exporter]" <?php if (isset($Ans) && $Ans=="No") echo "checked";?>  value="No" />No
+			<label class="control-label"><?php  echo $ms_account_sellerinfo_exporter; ?></label>
+			<div>
+				<input id="yes" type="radio"  name="seller[exporter]" <?php if (isset($Ans) && $Ans=="Yes") echo "checked";?> value="Yes" />
+				<label for="yes">Yes</label>
+				<input id="no" type="radio"  name="seller[exporter]" <?php if (isset($Ans) && $Ans=="No") echo "checked";?>  value="No" />
+				<label for="no">No</label>
 				<p class="ms-note"><?php echo $ms_account_sellerinfo_exporter_note; ?></p>
 				<span class="error"> <?php echo $Err;?></span>
 			</div>
@@ -192,8 +181,8 @@ $Err = "" ;
 		
 
 		<div class="form-group ">
-			<label class="col-sm-2 control-label"><?php echo $ms_account_sellerinfo_avatar; ?></label>
-			<div class="col-sm-10">
+			<label class=" control-label"><?php echo $ms_account_sellerinfo_avatar; ?></label>
+			<div>
 				<!--<input type="file" name="ms-file-selleravatar" id="ms-file-selleravatar" />-->
 				<div class="buttons">
 				<?php if ($this->config->get('msconf_avatars_for_sellers') != 2) { ?>
@@ -218,8 +207,8 @@ $Err = "" ;
 
 		<?php if ($this->config->get('msconf_enable_seller_banner')) { ?>
 		<div class="form-group">
-			<label class="col-sm-2 control-label"><?php echo $ms_account_sellerinfo_banner; ?></label>
-			<div class="col-sm-10">
+			<label class=" control-label"><?php echo $ms_account_sellerinfo_banner; ?></label>
+			<div>
 				<div class="buttons">
 					<a name="ms-file-sellerbanner" id="ms-file-sellerbanner" class="btn btn-primary"><span><?php echo $ms_button_select_image; ?></span></a>
 				</div>
@@ -242,8 +231,8 @@ $Err = "" ;
 
 		<?php if ($ms_account_sellerinfo_terms_note) { ?>
 		<div class="form-group required">
-			<label class="col-sm-2 control-label"><?php echo $ms_account_sellerinfo_terms; ?></label>
-			<div class="col-sm-10">
+			<label class="control-label"><?php echo $ms_account_sellerinfo_terms; ?></label>
+			<div>
 				<p style="margin-bottom: 0">
 					<input type="checkbox" name="seller[terms]" value="1" />
 					<?php echo $ms_account_sellerinfo_terms_note; ?>

@@ -1,10 +1,10 @@
 <?php echo $header; ?>
 <div class="container register-seller">
-  <ul class="breadcrumb">
+  <!--<ul class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
     <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
     <?php } ?>
-  </ul>
+  </ul>-->
 
   <div class="alert alert-danger warning main"></div>
 

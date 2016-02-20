@@ -5,6 +5,9 @@ $_['text_wishlist']      = 'Wish List (%s)';
 $_['text_shopping_cart'] = 'Shopping Cart';
 $_['text_category']      = 'Categories';
 $_['text_account']       = 'My Account';
+$_['text_account_edit']  ='Edit Account';
+$_['text_change_password']  ='Change Password';
+
 $_['text_register']      = 'Register';
 $_['text_login']         = 'Login';
 $_['text_order']         = 'Order History';

@@ -31,23 +31,23 @@
 	<tr>
 		<td><?php echo $ms_account_products_image; ?></td>
 		<td><?php echo $ms_account_products_product; ?></td>
-		<td><?php echo $ms_account_product_price; ?></td>
+		<!--<td><?php echo $ms_account_product_price; ?></td>
 		<td><?php echo $ms_account_products_sales; ?></td>
-		<td><?php echo $ms_account_products_earnings; ?></td>
+		<td><?php echo $ms_account_products_earnings; ?></td>-->
 		<td><?php echo $ms_account_products_status; ?></td>
 		<td><?php echo $ms_account_products_date; ?></td>
-		<td><?php echo $ms_account_products_listing_until; ?></td>
+		<!--<td><?php echo $ms_account_products_listing_until; ?></td>-->
 		<td class="large"><?php echo $ms_account_products_action; ?></td>
 	</tr>
 
 	<tr class="filter">
 		<td></td>
 		<td><input type="text"/></td>
+		<!--<td><input type="text"/></td>
 		<td><input type="text"/></td>
-		<td><input type="text"/></td>
-		<td><input type="text"/></td>
+		<td><input type="text"/></td>-->
 		<td></td>
-		<td><input type="text"/></td>
+		<!--<td><input type="text"/></td>-->
 		<td><input type="text"/></td>
 		<td></td>
 	</tr>
@@ -71,12 +71,12 @@
 			"aoColumns": [
 				{ "mData": "image" },
 				{ "mData": "product_name" },
-				{ "mData": "product_price" },
+				/*{ "mData": "product_price" },
 				{ "mData": "number_sold" },
-				{ "mData": "product_earnings" },
+				{ "mData": "product_earnings" },*/
 				{ "mData": "product_status" },
 				{ "mData": "date_added" },
-				{ "mData": "list_until" },
+				/*{ "mData": "list_until" },*/
 				{ "mData": "actions", "bSortable": false, "sClass": "text-right" }
 			]
 		});

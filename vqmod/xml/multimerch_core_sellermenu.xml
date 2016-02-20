@@ -40,18 +40,20 @@
                             <li><a href="<?php echo $this->url->link('seller/account-dashboard', '', 'SSL'); ?>"><?php echo $ms_account_dashboard; ?></a></li>
                         <?php } ?>
 
-                        <li><a href= "<?php echo $this->url->link('seller/account-profile', '', 'SSL'); ?>"><?php echo $ms_account_sellerinfo; ?></a></li>
                         <?php if ($this->MsLoader->MsSeller->getStatus($this->customer->getId()) == MsSeller::STATUS_ACTIVE) { ?>
                         <li><a href= "<?php echo $this->url->link('seller/account-product/create', '', 'SSL'); ?>"><?php echo $ms_account_newproduct; ?></a></li>
                         <li><a href= "<?php echo $this->url->link('seller/account-product', '', 'SSL'); ?>"><?php echo $ms_account_products; ?></a></li>
-                        <li><a href= "<?php echo $this->url->link('seller/account-order', '', 'SSL'); ?>"><?php echo $ms_account_orders; ?></a></li>
+                  <!--  <li><a href= "<?php echo $this->url->link('seller/account-order', '', 'SSL'); ?>"><?php echo $ms_account_orders; ?></a></li>
                         <li><a href= "<?php echo $this->url->link('seller/account-transaction', '', 'SSL'); ?>"><?php echo $ms_account_transactions; ?></a></li>
 
                         <?php if ($this->config->get('msconf_allow_withdrawal_requests')) { ?>
                         <li><a href= "<?php echo $this->url->link('seller/account-withdrawal', '', 'SSL'); ?>"><?php echo $ms_account_withdraw; ?></a></li>
                         <?php } ?>
 
-                        <li><a href= "<?php echo $this->url->link('seller/account-stats', '', 'SSL'); ?>"><?php echo $ms_account_stats; ?></a></li>
+                        <li><a href= "<?php echo $this->url->link('seller/account-stats', '', 'SSL'); ?>"><?php echo $ms_account_stats; ?></a></li> -->
+                        <li><a href= "<?php echo $this->url->link('account/edit', '', 'SSL'); ?>"><?php echo $ms_account_edit_text; ?></a></li>
+                        <li><a href= "<?php echo $this->url->link('seller/account-profile', '', 'SSL'); ?>"><?php echo $ms_account_sellerinfo; ?></a></li>
+                        <li><a href= "<?php echo $this->url->link('account/password', '', 'SSL'); ?>"><?php echo $ms_account_password_change_text; ?></a></li>
                         <li><a href="<?php echo $this->url->link('account/logout', '', 'SSL'); ?>"><?php echo $text_logout; ?></a></li>
                         <?php } ?>
                  </ul>

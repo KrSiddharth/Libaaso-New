@@ -21,9 +21,9 @@
     <div id="content" class="<?php echo $class; ?> ms-account-dashboard"><?php echo $content_top; ?>
     <h1><?php echo $ms_account_dashboard_heading; ?></h1>
     <div class="row">
-	<div class="overview col-md-2">
+	<div class="overview col-md-6">
 		<h3><?php echo $ms_account_dashboard_overview; ?></h3>
-		<a href="<?php echo $this->url->link('seller/catalog-seller/profile', 'seller_id=' . $seller['seller_id']); ?>"><img src="<?php echo $seller['avatar']; ?>" /></a><br />
+		<a href="<?php echo $this->url->link('seller/catalog-seller/profile', 'seller_id=' . $seller['seller_id']); ?>"><img class="sellerImage" src="<?php echo $seller['avatar']; ?>" /></a><br />
 		<span class="nickname"><?php echo $seller['ms.nickname']; ?></span>
 		<p><span><?php echo $ms_date_created; ?>:</span> <span><?php echo $seller['date_created']; ?></span></p>
 		<p style="display:none;"><span><?php echo $ms_account_dashboard_seller_group; ?>:</span> <span><?php echo $seller['seller_group']; ?></span></p>
@@ -65,20 +65,20 @@
 	</div>
 	<div class="nav col-md-5"></div>
 
-	<div class="nav col-md-3">
+	<div class="nav col-md-6">
 		<h3><?php echo $ms_account_dashboard_nav; ?></h3>
 		<a href="<?php echo $this->url->link('seller/account-profile', '', 'SSL'); ?>">
-			<img src="catalog/view/theme/<?php echo $this->config->get('config_template'); ?>/image/ms-profile.png" />
+			<img src="catalog/view/theme/<?php echo $this->config->get('config_template'); ?>/image/ms_profile.png" />
 			<span><?php echo $ms_account_dashboard_nav_profile; ?></span>
 		</a>
 
 		<a href="<?php echo $this->url->link('seller/account-product/create', '', 'SSL'); ?>">
-			<img src="catalog/view/theme/<?php echo $this->config->get('config_template'); ?>/image/ms-bag-plus.png" />
+			<img src="catalog/view/theme/<?php echo $this->config->get('config_template'); ?>/image/ms_bag_plus.png" />
 			<span><?php echo $ms_account_dashboard_nav_product; ?></span>
 		</a>
 
 		<a href="<?php echo $this->url->link('seller/account-product', '', 'SSL'); ?>">
-			<img src="catalog/view/theme/<?php echo $this->config->get('config_template'); ?>/image/ms-bag.png" />
+			<img src="catalog/view/theme/<?php echo $this->config->get('config_template'); ?>/image/ms_bag.png" />
 			<span><?php echo $ms_account_dashboard_nav_products; ?></span>
 		</a>
 		
@@ -158,9 +158,9 @@
 		</tbody>
 	</table>
 	
-      <div class="buttons clearfix">
+      <!--<div class="buttons clearfix">
         <div class="pull-left"><a href="<?php echo $link_back; ?>" class="btn btn-default"><?php echo $button_back; ?></a></div>
-      </div>
+      </div>-->
       <?php echo $content_bottom; ?></div>
     <?php echo $column_right; ?></div>
 </div>

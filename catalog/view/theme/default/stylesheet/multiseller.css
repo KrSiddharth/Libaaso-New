@@ -310,7 +310,7 @@ input.option_quantity {
 }
 
 .ms-product .ms-download .ms-button-delete {
-	background-image: url(../image/ms-cross.png);
+	background-image: url(../image/ms_delete_1.png);
 }
 
 .ms-product .ms-download .ms-button-delete.disabled {
@@ -603,6 +603,7 @@ div.ms-jquery-dialog.ui-widget-content,
 	width: 32px;
 	height: 32px;
 	margin: 0 1px;
+	background-repeat: no-repeat;
 }
 
 .ms-account-product table.list tbody td {
@@ -625,11 +626,11 @@ div.ms-jquery-dialog.ui-widget-content,
 
 
 .ms-account-product-form .ms-button-delete {
-	background-image: url(../image/ms-cross.png);
+	background-image: url(../image/ms_delete_1.png);
 }
 
 .ms-button-view {
-	background-image: url(../image/ms-magnifier.png);
+	background-image: url(../image/ms_magnifier_1.png);
 }
 .ms-button-print {
 	background-image: url(../image/ms-printer.png);
@@ -640,15 +641,15 @@ div.ms-jquery-dialog.ui-widget-content,
 }
 
 .ms-button-unpublish {
-	background-image: url(../image/ms-minus.png);
+	background-image: url(../image/ms_unpublish_1.png);
 }
 
 .ms-button-edit {
-	background-image: url(../image/ms-pencil.png);
+	background-image: url(../image/ms_pencil_1.png);
 }
 
 .ms-button-clone {
-	background-image: url(../image/ms-clone.png);
+	background-image: url(../image/ms_clone_1.png);
 }
 
 .ms-button-relist {
@@ -656,7 +657,7 @@ div.ms-jquery-dialog.ui-widget-content,
 }
 
 .ms-button-delete {
-	background-image: url(../image/ms-cross.png);
+	background-image: url(../image/ms_delete_1.png);
 }
 
 
@@ -724,6 +725,7 @@ ul.ms-sellermenu.graphical li a {
 	text-decoration: none;
 	margin-bottom: 5px;
 	height: 32px;
+	font-size:13px;
 }
 
 .ms-account-dashboard .nav a span {
@@ -894,4 +896,163 @@ table.list thead td.right {
     color: #595959;
     border-color: #e8e8e8;
     background: #fcfcfc;
+}
+
+
+.sellerImage{
+	display: inline-block;
+	border: 2px solid #1b75bb;
+	/* background: #1b75bb; */
+	border-radius: 50%;
+	padding: 10px;
+}
+
+#ms-sellerinfo{
+	padding:20px;
+}
+
+#ms-sellerinfo input[type="text"],#ms-sellerinfo select,#ms-sellerinfo textarea{
+	width: 80%;
+	border-radius: 2px;
+	box-shadow: none;
+	/* border: 2px solid #ccc; */
+	font-size: 14px;
+	height: 44px;
+}
+
+#ms-sellerinfo input[type="radio"]{
+	width: 40px;
+	height: 20px;
+	background: #fff;
+}
+
+#ms-sellerinfo input[type="radio"]:checked{
+	color:#1b75bb;
+}
+
+
+#ms-sellerinfo label{
+	font-weight:bold;
+	font-size: 13px;
+}
+
+#ms-sellerinfo textarea{
+	height:150px;
+}
+
+#ms-sellerinfo div.form-group{
+	display: inline-block;
+	width: 50%;
+}
+
+#ms-sellerinfo div.form-group.full-width{
+	width:100%;
+}
+
+#ms-sellerinfo div.form-group.full-width input[type="text"],#ms-sellerinfo div.form-group.full-width textarea{
+	width:87%;
+}
+
+.alert-success {
+	color: #3c763d;
+	/* background-color: #dff0d8; */
+	background: none;
+	border:2px solid #d6e9c6;
+}
+
+.seller-banner{
+	min-height: 300px;
+}
+
+.seller-banner .thumbnail{
+	position: relative;
+	border:none;
+}
+
+.seller-banner .avatar-box{
+	position: absolute;
+	bottom: -55px;
+	left: 30px;
+	border: none;
+	background: none;
+}
+
+.seller-banner .avatar-box img{
+	border-radius: 50%;
+	border: 2px solid #1b75bb;
+	padding: 10px;
+	background: #fff;
+}
+
+.seller-banner .infoBox{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	background-color: rgba(0,0,0,0.8);
+	height: 50px;
+	line-height: 50px;
+	color: #fff;
+}
+
+.seller-banner .infoBox ul{
+	list-style: none;
+	padding-left: 200px;
+}
+
+.seller-banner .infoBox li{
+	display: inline-block;
+	font-size: 17px;
+	padding-left: 35px;
+}
+
+.seller-banner .infoBox li#location{
+	background: url('../image/ms_location.png');
+	background-repeat:no-repeat;
+	background-position: 0 50%;
+}
+
+.seller-banner .infoBox li#market{
+	background: url('../image/ms_market.png');
+	background-repeat:no-repeat;
+	background-position: 0 50%;
+}
+
+.seller-banner .infoBox li#products{
+	background: url('../image/ms_products.png');
+	background-repeat:no-repeat;
+	background-position: 0 50%;
+}
+
+.lower-info-bar{
+	position: relative;
+	top: -70px;
+	padding-left:200px;
+}
+
+ul.seller-address{
+	list-style: none;
+	padding-top: -200px;
+	font-size: 14px;
+	width: 300px;
+	display: inline-block;
+}
+
+ul.seller-address li:first-child{
+	font-weight: bold;
+	color: #1b75bb;
+}
+
+.seller-description{
+
+	font-size: 14px;
+	padding: 20px;
+	margin-top: 80px;
+	-webkit-box-shadow: 1px 1px 18px -10px rgba(0,0,0,0.75);
+	-moz-box-shadow: 1px 1px 18px -10px rgba(0,0,0,0.75);
+	box-shadow: 1px 1px 18px -10px rgba(0,0,0,0.75);
+}
+
+.lower-info-bar .view-products-btn{
+	display: inline-block;
 }

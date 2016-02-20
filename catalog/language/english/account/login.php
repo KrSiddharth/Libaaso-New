@@ -5,9 +5,9 @@ $_['heading_title']                = 'Account Login';
 // Text
 $_['text_account']                 = 'Account';
 $_['text_login']                   = 'Login';
-$_['text_new_customer']            = 'New Customer';
-$_['text_register']                = 'Register Account';
-$_['text_register_account']        = 'By creating an account you will be able to shop faster, be up to date on an order\'s status, and keep track of the orders you have previously made.';
+$_['text_new_customer']            = 'New Buyer';
+$_['text_register']                = 'Buyer Registration';
+$_['text_register_account']        = 'By creating an account you will have access to latest trends and designs,you would be able to contact manufacturer directly.';
 $_['text_returning_customer']      = 'Returning Customer';
 $_['text_i_am_returning_customer'] = 'I am a returning customer';
 $_['text_forgotten']               = 'Forgotten Password';

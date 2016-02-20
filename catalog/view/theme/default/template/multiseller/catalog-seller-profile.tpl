@@ -21,19 +21,35 @@
         <?php } elseif ($column_left || $column_right) { ?>
         <?php $class = 'col-sm-6'; ?>
         <?php } else { ?>
-        <?php $class = 'col-sm-9'; ?>
+        <?php $class = 'col-sm-12'; ?>
         <?php } ?>
 		<div class="<?php echo $class; ?> seller-data">
 			<?php if ($this->config->get('msconf_enable_seller_banner') && isset($seller['banner'])) { ?>
 			<ul class="thumbnails seller-banner">
 					<li><a class="thumbnail"><img src="<?php echo $seller['banner']; ?>" title="<?php echo $seller['nickname']; ?>" alt="<?php echo $seller['nickname']; ?>" />
+						<div class="infoBox">
+							<ul>
+								<?php if (isset($seller['city']) && $seller['city']) { ?><li class="col-sm-4" id="location"><?php echo $seller['city']; ?></li><?php } ?>
+								<?php if (isset($seller['market']) && $seller['market']) { ?><li class="col-sm-4" id="market"> <?php echo $seller['market']; ?></li><?php } ?>
+								<li class="col-sm-4" id="products"><?php echo $seller['total_products']; ?></li>
 
-					</a></li>
+							</ul>
+						</div>
+						<div class="avatar-box thumbnail"><img src="<?php echo $seller['thumb']; ?>" /></div>
+					</a>
+					</li>
 			</ul>
 			<?php } ?>
-			<div class="seller-description"><?php echo $seller['description']; ?></div>
+			<div class="lower-info-bar">
+			<ul class="seller-address col-sm-4">
+			<?php if (isset($seller['company']) && $seller['company']) { ?><li> <?php echo $seller['company']; ?></li><?php } ?>
+				<?php if (isset($seller['address']) && $seller['address']) { ?><li><?php echo $seller['address']; ?></li><?php } ?>
 
-			<?php if ($seller['products']) { ?>
+			</ul>
+			<a class="view-products-btn btn btn-primary col-sm-4" href="<?php echo $seller['href']; ?>" ><span><?php echo $ms_catalog_seller_profile_view_products; ?></span></a>
+			</div>
+				<div class="seller-description"><?php echo $seller['description']; ?></div>
+			<!--<?php if ($seller['products']) { ?>
 			<hr />
 			<h3><?php echo $ms_catalog_seller_profile_products; ?></h3>
 			<div class="row">
@@ -67,7 +83,7 @@
 			  </div>
 			  <?php } ?>
 			</div>
-			<?php } ?>
+			<?php } ?>-->
 			<!-- end products -->
 		</div>
 
@@ -79,7 +95,7 @@
         <?php } else { ?>
         <?php $class = 'col-sm-3'; ?>
         <?php } ?>
-        <div class="<?php echo $class; ?>">
+        <div class="<?php echo $class; ?>" style="display: none;">
 			<div class="info-box">
 				<a class="avatar-box thumbnail" href="<?php echo $seller['href']; ?>"><img src="<?php echo $seller['thumb']; ?>" /></a>
 				<div>
@@ -90,7 +106,7 @@
 					<?php if (isset($seller['phone']) && $seller['phone']) { ?><li><?php echo $ms_catalog_seller_profile_phone; ?> <?php echo $seller['phone']; ?></li><?php } ?>
 -->
 				<?php if (isset($seller['exporter']) && $seller['exporter']) { ?><li><?php echo $ms_catalog_seller_profile_exporter; ?> <?php echo $seller['exporter']; ?></li><?php } ?>
-		<?php if (isset($seller['market']) && $seller['market']) { ?><li><?php echo $ms_catalog_seller_profile_market; ?> <?php echo $seller['market']; ?></li><?php } ?>
+				<?php if (isset($seller['market']) && $seller['market']) { ?><li><?php echo $ms_catalog_seller_profile_market; ?> <?php echo $seller['market']; ?></li><?php } ?>
 					<!--
 					<?php if (isset($seller['address']) && $seller['address']) { ?><li><?php echo $ms_catalog_seller_profile_address; ?> <?php echo $seller['address']; ?></li><?php } ?>
 					-->
@@ -101,7 +117,7 @@
 					<li><?php echo $ms_catalog_seller_profile_totalsales; ?> <?php echo $seller['total_sales']; ?></li>
 					<li><?php echo $ms_catalog_seller_profile_totalproducts; ?> <?php echo $seller['total_products']; ?></li>
 				</ul>
-				<a href="<?php echo $seller['href']; ?>" class="btn btn-default btn-block"><span><?php echo $ms_catalog_seller_profile_view_products; ?></span></a>
+					<a href="<?php echo $seller['href']; ?>" class="btn btn-default btn-block"><span><?php echo $ms_catalog_seller_profile_view_products; ?></span></a>
 				</div>
 			</div>
 
@@ -183,3 +199,5 @@
   </div>
 </div>
 <?php echo $footer; ?>
+
+

@@ -313,16 +313,18 @@ $_['ms_account_seller_account'] = 'Seller Account';
 $_['ms_account_customer_account'] = 'Customer Account';
 $_['ms_account_sellerinfo'] = 'Seller profile';
 $_['ms_account_sellerinfo_new'] = 'New seller account';
-$_['ms_account_newproduct'] = 'New product';
-$_['ms_account_products'] = 'Products';
+$_['ms_account_newproduct'] = 'New Catalogue';
+$_['ms_account_products'] = 'Catalogues';
 $_['ms_account_transactions'] = 'Transactions';
 $_['ms_account_orders'] = 'Orders';
 $_['ms_account_withdraw'] = 'Request payout';
 $_['ms_account_stats'] = 'Statistics';
+$_['ms_account_edit_text']='Edit Basic Info';
+$_['ms_account_password_change_text']='Change Password';
 
 // Account - New product
 $_['ms_account_newproduct_heading'] = 'New Catalogue';
-$_['ms_account_newproduct_breadcrumbs'] = 'New Product';
+$_['ms_account_newproduct_breadcrumbs'] = 'New Catalogue';
 //General Tab
 $_['ms_account_product_tab_general'] = 'General';
 $_['ms_account_product_tab_specials'] = 'Special prices';
@@ -434,7 +436,7 @@ $_['ms_account_sellerinfo_description'] = 'Description';
 $_['ms_account_sellerinfo_description_note'] = 'Describe yourself';
 $_['ms_account_sellerinfo_phone'] = 'Phone ';
 $_['ms_account_sellerinfo_phone_note'] = 'Your phone number (necessary)';
-$_['ms_account_sellerinfo_exporter'] = 'Are u an exporter?';
+$_['ms_account_sellerinfo_exporter'] = 'Are you an exporter?';
 $_['ms_account_sellerinfo_exporter_note'] = '';
 $_['ms_account_sellerinfo_address'] = 'Address ';
 $_['ms_account_sellerinfo_address_note'] = 'Your address (necessary)';
@@ -506,10 +508,10 @@ $_['ms_seller_status_' . MsSeller::STATUS_DELETED] = 'Deleted';
 $_['ms_seller_status_' . MsSeller::STATUS_UNPAID] = 'Unpaid signup fee';
 
 // Account - Products
-$_['ms_account_products_heading'] = 'Your Products';
-$_['ms_account_products_breadcrumbs'] = 'Your Products';
+$_['ms_account_products_heading'] = 'Your Catalogues';
+$_['ms_account_products_breadcrumbs'] = 'Your Catalogues';
 $_['ms_account_products_image'] = 'Image';
-$_['ms_account_products_product'] = 'Product';
+$_['ms_account_products_product'] = 'Catalogue';
 $_['ms_account_products_sales'] = 'Sales';
 $_['ms_account_products_earnings'] = 'Earnings';
 $_['ms_account_products_status'] = 'Status';
