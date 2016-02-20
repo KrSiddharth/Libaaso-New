@@ -82,6 +82,12 @@
 			<span><?php echo $ms_account_dashboard_nav_products; ?></span>
 		</a>
 		
+		
+		<a href="<?php echo $this->url->link('seller/account-notifications', '', 'SSL'); ?>">
+			<img src="catalog/view/theme/<?php echo $this->config->get('config_template'); ?>/image/ms-bag.png" />
+			<span><?php echo $ms_account_dashboard_nav_notifications; ?></span>
+		</a>
+		
 		<a style="display:none;" href="<?php echo $this->url->link('seller/account-order', '', 'SSL'); ?>">
 			<img src="catalog/view/theme/<?php echo $this->config->get('config_template'); ?>/image/ms-cart-96.png" />
 			<span><?php echo $ms_account_dashboard_nav_orders; ?></span>
