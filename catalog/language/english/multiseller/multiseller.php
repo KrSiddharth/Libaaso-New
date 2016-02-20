@@ -237,6 +237,7 @@ $_['ms_error_sellerinfo_nickname_taken'] = 'This nickname is already taken';
 $_['ms_error_sellerinfo_phone_length'] = 'Please specify your phone number';
 $_['ms_error_sellerinfo_exporter_length'] = 'Please answer this question';
 $_['ms_error_sellerinfo_address_length'] = 'Please specify your address';
+
 $_['ms_error_sellerinfo_company_length'] = 'Please specify your Shopname';
 $_['ms_error_sellerinfo_market_length'] = 'Please specify your market name';
 $_['ms_error_sellerinfo_country_length'] = 'Please specify your country';
@@ -250,6 +251,7 @@ $_['ms_error_sellerinfo_zone_length'] = 'Please specify your state ';
 
 
 $_['ms_error_sellerinfo_description_length'] = 'Description cannot be longer than 1000 characters';
+$_['ms_error_sellerinfo_description_lengthzero'] = 'Please specify this field';
 $_['ms_error_sellerinfo_paypal'] = 'Invalid PayPal address';
 $_['ms_error_sellerinfo_terms'] = 'Warning: You must agree to the %s!';
 $_['ms_error_file_extension'] = 'Invalid extension';
@@ -628,6 +630,8 @@ $_['ms_account_order_information'] = 'Order Information';
 // Account - Dashboard
 $_['ms_account_dashboard_heading'] = 'Seller Dashboard';
 $_['ms_account_dashboard_breadcrumbs'] = 'Seller Dashboard';
+
+$_['ms_account_dashboard_breadcrumbs_notifications'] = 'Seller-Notifications';
 $_['ms_account_dashboard_orders'] = 'Last orders';
 $_['ms_account_dashboard_overview'] = 'Overview';
 $_['ms_account_dashboard_seller_group'] = 'Seller group';
@@ -645,10 +649,20 @@ $_['ms_account_dashboard_nav_profile'] = 'Modify your seller profile';
 $_['ms_account_dashboard_nav_setting'] = 'Modify your seller settings';
 $_['ms_account_dashboard_nav_product'] = 'Create a new catalogue';
 $_['ms_account_dashboard_nav_products'] = 'Manage your catalogues';
+$_['ms_account_dashboard_nav_notifications'] = 'Notifications';
 $_['ms_account_dashboard_nav_orders'] = 'View your orders';
 $_['ms_account_dashboard_nav_balance'] = 'View your financial records';
 $_['ms_account_dashboard_nav_payout'] = 'Request your payout';
 $_['ms_account_sellersetting_breadcrumbs'] = 'Seller Settings';
+
+
+// Account - Notifications
+
+
+$_['ms_account_notifications_heading'] = 'Hello Seller';
+
+$_['ms_account_notifications_para'] = 'Hell';
+
 
 
 // Account - Request withdrawal

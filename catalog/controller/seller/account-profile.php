@@ -103,6 +103,7 @@ class ControllerSellerAccountProfile extends ControllerSellerAccount {
 		if (mb_strlen($data['seller']['address']) < 1 ) {
 			$json['errors']['seller[address]'] = $this->language->get('ms_error_sellerinfo_address_length');
 		}
+		
 
 
 		if (mb_strlen($data['seller']['company']) < 1 ){
@@ -125,7 +126,9 @@ class ControllerSellerAccountProfile extends ControllerSellerAccount {
 			$json['errors']['seller[city]'] = $this->language->get('ms_error_sellerinfo_city_length');
 		}
 		
-		
+		if (mb_strlen($data['seller']['description']) < 1) {
+			$json['errors']['seller[description]'] = $this->language->get('ms_error_sellerinfo_description_lengthzero');
+		}
 		
 		if (mb_strlen($data['seller']['description']) > 1000) {
 			$json['errors']['seller[description]'] = $this->language->get('ms_error_sellerinfo_description_length');
