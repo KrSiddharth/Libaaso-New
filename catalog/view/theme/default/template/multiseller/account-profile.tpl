@@ -156,7 +156,14 @@ $Err = "" ;
 		</div>
 		
 		-->
+		<? php
 		
+			if (empty($_POST["seller[exporter]"])) {
+     $Err = "Field is required";
+   } else {
+     $seller['ms.exporter'] = test_input($_POST["seller[exporter]"]);
+   }
+   ?>
 		
 		<div class="form-group required">
 			<label class="col-sm-2 control-label"><?php  echo $ms_account_sellerinfo_exporter; ?></label>
@@ -167,15 +174,6 @@ $Err = "" ;
 				<span class="error"> <?php echo $Err;?></span>
 			</div>
 		</div>
-		
-		<? php
-		
-			if (empty($_POST["seller[exporter]"])) {
-     $Err = "Field is required";
-   } else {
-     $seller['ms.exporter'] = test_input($_POST["seller[exporter]"]);
-   }
-   ?>
 		
 	
 		

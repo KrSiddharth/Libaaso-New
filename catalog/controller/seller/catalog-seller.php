@@ -5,7 +5,6 @@ class ControllerSellerCatalogSeller extends ControllerSellerCatalog {
 		
 		$this->language->load('product/category');
 		$this->load->model('localisation/country');
-		$this->load->model('localisation/market');
 		$this->load->model('catalog/category');
 		$this->load->model('catalog/product');
 		$this->load->model('tool/image');
@@ -244,17 +243,10 @@ class ControllerSellerCatalogSeller extends ControllerSellerCatalog {
 		
 		$country = $this->model_localisation_country->getCountry($seller['ms.country_id']);
 		
-		$market = $this->model_localisation_market->getMarket($seller['ms.market_id']);
-		
 		if (!empty($country)) {			
 			$this->data['seller']['country'] = $country['name'];
 		} else {
 			$this->data['seller']['country'] = NULL;
-		}
-		if (!empty($market)) {			
-			$this->data['seller']['market'] = $market['name'];
-		} else {
-			$this->data['seller']['market'] = NULL;
 		}
 		
 		if (!empty($seller['ms.company'])) {
